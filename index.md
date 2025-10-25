@@ -28,10 +28,10 @@ Both **OpusClip** and **Gauthmath** were recognized by *Andreessen Horowitz (a16
 
 ## News
 
-- **[Sept 2025]** Two paper is accepted by **NeurIPS 2025**.
+- **[Sept 2025]** Two papers accepted by **NeurIPS 2025**.
 - **[Feb 2025]** Two papers accepted to **CVPR 2025**, including **One Highlight**.  
 - **[May 2025]** One paper accepted to **ACL 2025**.  
-- **[Dec 2024]** Two paper accepted to **AAAI 2025**.  
+- **[Dec 2024]** Two papers accepted to **AAAI 2025**.  
 - **[Nov 2024]** Co-authored an article with **Google AI team** on **Gemini Flash**:  
   *“[OpusClip achieves 30% cost savings with Gemini Flash](https://ai.google.dev/showcase/opusclip)”* (Google AI Showcase).  
 - **[Jan 2025]** One journal paper accepted to **BIT** 
