@@ -39,6 +39,4 @@ I hold a **Master (OR)** from **UC Berkeley**, and an **Undergrad (IE & Math)** 
 
 {% include_relative _includes/publications.md %}
 
-{% include_relative _includes/services.md %}
-
 <script type='text/javascript' id='clustrmaps' src='//cdn.clustrmaps.com/map_v2.js?cl=ffffff&w=300&t=tt&d=ObqgpeoqT1b3O21DlyRV6L2rujBvm3r-Lpod84URhy0&cmn=3acc3a&cmo=3acc3a&co=2d78ad&ct=ffffff'></script>

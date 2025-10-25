@@ -1,22 +1,56 @@
 main:
+  - title: "On the Generalization of SFT: A Reinforcement Learning Perspective with Reward Rectification"
+    authors: "Yongliang Wu*, Yizhou Zhou*, Zhou Ziheng, Yingzhe Peng, Xinyu Ye, Xinting Hu, <strong>Wenbo Zhu</strong>, Lu Qi, Ming-Hsuan Yang, Xu Yang"
+    conference_short: Preprint
+    conference: "arXiv, 2025.8."
+    pdf: https://arxiv.org/abs/2508.05629
+    image: ./assets/img/dft.png
+    code: https://github.com/yongliang-wu/DFT
 
-  - title: Continual Learning for Abdominal Multi-Organ and Tumor Segmentation
-    authors: Yixiao Zhang, Xinyi Li, Huimiao Chen, Alan Yuille, <strong>Yaoyao Liu*</strong>, Zongwei Zhou* (*Corresponding authors)
-    conference_short: MICCAI
-    conference: International Conference on Medical Image Computing and Computer-Assisted Intervention <strong>(MICCAI)</strong>, 2023.
-    pdf: https://arxiv.org/pdf/2306.00988.pdf
-    code: https://github.com/MrGiovanni/ContinualLearning
-    bibtex: https://bib.yliu.me/MICCAI23.txt
-    image: ./assets/img/teaser_example_2.png
-    notes: Early Accept
+  - title: "KRIS-Bench: Benchmarking Next-Level Intelligent Image Editing Models"
+    authors: "Yongliang Wu, Zonghui Li, Xinting Hu, Xinyu Ye, Xianfang Zeng, Gang Yu, <strong>Wenbo Zhu</strong>, Bernt Schiele, Ming-Hsuan Yang, Xu Yang"
+    conference_short: NeurIPS
+    conference: "Advances in Neural Information Processing Systems (NeurIPS), 2025."
+    pdf: https://arxiv.org/abs/2505.16707
+    image: ./assets/img/kris-bench.png
+    code: https://yongliang-wu.github.io/kris_bench_project_page/
 
-  - title: "Mnemonics Training: Multi-Class Incremental Learning without Forgetting"
-    authors: <strong>Yaoyao Liu</strong>, Yuting Su, An-An Liu, Bernt Schiele, Qianru Sun
+  - title: "Number it: Temporal Grounding Videos like Flipping Manga"
+    authors: "Yongliang Wu*, Xinting Hu*, Yuyang Sun, Yizhou Zhou, <strong>Wenbo Zhu</strong>, Fengyun Rao, Bernt Schiele, Xu Yang"
     conference_short: CVPR
-    conference: IEEE/CVF Conference on Computer Vision and Pattern Recognition <strong>(CVPR)</strong>, 2020.
-    pdf: https://arxiv.org/pdf/2002.10211.pdf
-    code: https://github.com/yaoyao-liu/class-incremental-learning/tree/main/mnemonics-training
-    page: https://class-il.mpi-inf.mpg.de/mnemonics/
-    bibtex: https://class-il.mpi-inf.mpg.de/mnemonics/
-    notes: Oral Presentation
-    image: ./assets/img/teaser_example.png
+    conference: "IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR), 2025."
+    pdf: https://arxiv.org/abs/2411.10332
+    code: https://github.com/yongliang-wu/NumPro
+    image: ./assets/img/numpro.png
+
+  - title: "Unlearning Concepts in Diffusion Model via Concept Domain Correction and Concept Preserving Gradient"
+    authors: "Yongliang Wu*, Shiji Zhou*, Mingzhuo Yang, Lianzhe Wang, <strong>Wenbo Zhu</strong>, Heng Chang, Xinting Hu, Xiao Zhou, Xu Yang"
+    conference_short: AAAI
+    conference: "AAAI Conference on Artificial Intelligence (AAAI), 2025."
+    pdf: https://arxiv.org/abs/2405.15304
+    code: https://github.com/yongliang-wu/DoCo
+    image: ./assets/img/unlearn.png
+    
+  - title: "Video Repurposing from User Generated Content: A Large-scale Dataset and Benchmark"
+    authors: "Yongliang Wu*, <strong>Wenbo Zhu</strong>*, Jiawang Cao*, Yi Lu, Bozheng Li, Weiheng Chi, Zihan Qiu, Lirian Su, Haolin Zheng, Jay Wu, Xu Yang"
+    conference_short: AAAI
+    conference: "AAAI Conference on Artificial Intelligence (AAAI), 2025."
+    pdf: https://arxiv.org/abs/2412.08879
+    code: https://github.com/yongliang-wu/Repurpose
+    image: ./assets/img/repurpose.png
+
+  - title: "VEU-Bench: Towards Comprehensive Understanding of Video Editing"
+    authors: "Bozheng Li, Yongliang Wu, Yi Lu, Jiashuo Yu, Licheng Tang, Jiawang Cao, Wenqing Zhu, Yuyang Sun, Jay Wu, <strong>Wenbo Zhu</strong>"
+    conference_short: CVPR
+    conference: "IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR), 2025. "
+    image: ./assets/img/veu-bench.png
+    pdf: https://arxiv.org/abs/2504.17828
+    code: https://labazh.github.io/VEU-Bench.github.io/
+    notes: Highlight
+
+  - title: "RSVP: Reasoning Segmentation via Visual Prompting and Multi-modal Chain-of-Thought"
+    authors: "Yi Lu*, Jiawang Cao*, Yongliang Wu*, Bozheng Li, Licheng Tang, Yangguang Ji, Chong Wu, Jay Wu, <strong>Wenbo Zhu</strong>"
+    conference_short: ACL
+    conference: "Annual Meeting of the Association for Computational Linguistics (ACL), 2025."
+    pdf: https://arxiv.org/abs/2506.04277
+    image: ./assets/img/rsvp.png
