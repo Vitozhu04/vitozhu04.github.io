@@ -4,8 +4,12 @@ layout: homepage
 
 ## About Me
 
-Hello! I'm **Wenbo (Vito) Zhu**, currently the **Founding AI Lead & Head of AI Research** at [OpusClip](https://www.opusclip.com), where I lead a 20-person AI team focusing on multimodal video understanding, generative video editing, and agentic systems.  
-I’m fortunate to work closely with [Prof. Xu Yang](https://yxpalmweb.github.io/), and have mentored multiple interns including [Yongliang Wu](https://yongliang-wu.github.io/) and Bozheng Li.  
+Hello! I'm **Wenbo (Vito) Zhu**, currently the **Founding AI Lead & Head of AI Research** at [OpusClip](https://www.opusclip.com).  
+I joined when the team had around 5 engineers, failed and pivoted, and now lead a **30+ cross-functional AI team** delivering next-generation multimodal and generative video products.  
+I initiated, led, and shipped several flagship systems, including:  
+- [**OpusClip**](https://www.opus.pro/) – No.1 AI Clipping Tool in the market
+- [**ClipAnything**](https://www.opus.pro/clipanything) – First multi-modal clipping tool with prompting capabilities
+- [**Agent Opus**](https://www.opus.pro/agent) – First video agent tailored for social media
 
 Before OpusClip, I was a **Senior ML Engineer at ByteDance/TikTok**, where I served as a founding engineer of [Gauthmath](https://www.gauthmath.com/) — building the world’s first AI-based geometry solver with 100M+ downloads.  
 Earlier, as a **Research Scientist at Cloudwalk Technology**, I developed a **billion-scale face clustering engine** deployed across 10+ cities (patented).  
@@ -41,10 +45,11 @@ Both **OpusClip** and **Gauthmath** were recognized by *Andreessen Horowitz (a16
 
 ## Competition & Awards
 
-- **[Jun 2024]** 🥇 **1st Place** – CVPR 2025 VidLLMs Challenge (Multilingual Video Reasoning)  
-- **[Jun 2024]** 🥈 **2nd Place** – CVPR 2025 VidLLMs Challenge (Complex Video Reasoning & Robustness)  
-- **[Jun 2024]** 🥉 **3rd Place** – CVPR 2025 SoccerNet Challenge (Multi-View Foul Recognition)  
-- **[Oct 2024]** 🏆 **Winner** – ECCV 2024 Perception Challenge (Hour-Long Video QA Track)  
-- **[Jun 2024]** 🏆 **Winner** – CVPR 2024 LOVEU Workshop (Long-Term Video QA Track)    
+- **[Oct 2025]** 🥈 **2nd Place** – **Perception Test Challenge 2025** (Task 5: Hour-Long Video QA)  
+- **[Aug 2025]** 🥉 **3rd Place** – **CVPR 2025 SoccerNet Challenge** (Multi-View Foul Recognition)  
+- **[Jun 2025]** 🥇 **1st Place** – **CVPR 2025 VidLLMs Challenge** (Multilingual Video Reasoning)  
+- **[Jun 2025]** 🥈 **2nd Place** – **CVPR 2025 VidLLMs Challenge** (Complex Video Reasoning & Robustness)  
+- **[Oct 2024]** 🏆 **Winner** – **ECCV 2024 Perception Challenge** (Hour-Long Video QA Track)  
+- **[Jun 2024]** 🏆 **Winner** – **CVPR 2024 LOVEU Workshop** (Long-Term Video QA Track)
 - **[2020]** 🥈 **Kaggle ASHRAE Great Energy Predictor III** – Silver Medal (Top 2%)  
 
