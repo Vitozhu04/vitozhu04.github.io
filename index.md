@@ -7,9 +7,9 @@ layout: homepage
 Hello! I'm **Wenbo (Vito) Zhu**, currently the **Founding AI Lead & Head of AI Research** at [OpusClip](https://www.opusclip.com).  
 I joined when the team had around 5 engineers, failed and pivoted, and now lead a **30+ cross-functional AI team** delivering next-generation multimodal and generative video products.  
 I initiated, led, and shipped several flagship systems, including:  
-- [**OpusClip**](https://www.opus.pro/) – No.1 AI Clipping Tool in the market
-- [**ClipAnything**](https://www.opus.pro/clipanything) – First multi-modal clipping tool with prompting capabilities
-- [**Agent Opus**](https://www.opus.pro/agent) – First video agent tailored for social media
+- [OpusClip](https://www.opus.pro/) – No.1 AI Clipping Tool in the market
+- [ClipAnything](https://www.opus.pro/clipanything) – First multi-modal clipping tool with prompting capabilities
+- [Agent Opus](https://www.opus.pro/agent) – First video agent tailored for social media
 
 Before OpusClip, I was a **Senior ML Engineer at ByteDance/TikTok**, where I served as a founding engineer of [Gauthmath](https://www.gauthmath.com/) — building the world’s first AI-based geometry solver with 100M+ downloads.  
 Earlier, as a **Research Scientist at Cloudwalk Technology**, I developed a **billion-scale face clustering engine** deployed across 10+ cities (patented).  
