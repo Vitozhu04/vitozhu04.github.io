@@ -16,7 +16,7 @@ Earlier, as a **Research Scientist at Cloudwalk Technology**, I developed a **bi
 
 - **Recognition:** Both **OpusClip** and **Gauthmath** were recognized by *Andreessen Horowitz (a16z)* as **Top 50 GenAI Apps**.  
 - **Leadership:** I founded the [Opus AI Research Team](https://opusair.github.io/), the research team at OpusClip.  
-- **Collaboration:** I work with [Prof. Xu Yang](https://yxpalmweb.github.io/) on multimodal video intelligence and robust vision-language alignment.  
+- **Collaboration:** I work with <a href="https://yxpalmweb.github.io/" target="_blank" rel="noopener" style="color: rgb(62, 183, 240);">Prof. Xu Yang</a> on multimodal video intelligence and robust vision-language alignment.  
 - **Education:** I hold a **Master (OR)** from [UC Berkeley](https://engineering.berkeley.edu/) and an **Undergrad (IE & Math)** from [Beihang University](https://ev.buaa.edu.cn/).  
 
 ## Career
