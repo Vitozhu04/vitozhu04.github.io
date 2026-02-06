@@ -15,7 +15,8 @@ Before OpusClip, I was a **Senior ML Engineer at ByteDance/TikTok**, where I ser
 Earlier, as a **Research Scientist at Cloudwalk Technology**, I developed a **billion-scale face clustering engine** deployed across 10+ cities (patented).  
 
 Both **OpusClip** and **Gauthmath** were recognized by *Andreessen Horowitz (a16z)* as **Top 50 GenAI Apps**.  
-I have an ongoing research collaboration with **Professor Xu Yang** on multimodal video intelligence and robust vision-language alignment.  
+I founded the [Opus AI Research Team](https://opusair.github.io/), the research team at OpusClip.  
+I have an ongoing research collaboration with [**Prof. Xu Yang**](https://yxpalmweb.github.io/) on multimodal video intelligence and robust vision-language alignment.  
 
 🎓 I hold a **Master (OR)** from [UC Berkeley](https://engineering.berkeley.edu/) and an **Undergrad (IE & Math)** from [Beihang University](https://ev.buaa.edu.cn/).  
 
@@ -33,7 +34,7 @@ I have an ongoing research collaboration with **Professor Xu Yang** on multimoda
 
 ## News
 
-- **[Jan. 2026]** 🎉 One paper is accepted by **ICLR 2026**.
+- **[Jan. 2026]** One paper is accepted by **ICLR 2026**.
 - **[Sept 2025]** Two papers accepted by **NeurIPS 2025**.
 - **[May 2025]** One paper accepted to **ACL 2025**.  
 - **[Feb 2025]** Two papers accepted to **CVPR 2025**, including **One Highlight**.  
