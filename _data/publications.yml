@@ -23,6 +23,7 @@ main:
     pdf: https://arxiv.org/abs/2411.10332
     code: https://github.com/yongliang-wu/NumPro
     image: ./assets/img/numpro.png
+    others: <strong><i style="color:#e74d3c">Adopted by Andrew Zisserman's work.</i></strong>
 
   - title: "Unlearning Concepts in Diffusion Model via Concept Domain Correction and Concept Preserving Gradient"
     authors: "Yongliang Wu*, Shiji Zhou*, Mingzhuo Yang, Lianzhe Wang, <strong>Wenbo Zhu</strong>, Heng Chang, Xinting Hu, Xiao Zhou, Xu Yang"
@@ -55,3 +56,4 @@ main:
     conference: "Annual Meeting of the Association for Computational Linguistics (ACL), 2025."
     pdf: https://arxiv.org/abs/2506.04277
     image: ./assets/img/rsvp.png
+    others: <strong><i style="color:#e74d3c">Compared and cited by SAM 3.</i></strong>
