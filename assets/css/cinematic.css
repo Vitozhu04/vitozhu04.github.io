@@ -11,12 +11,19 @@
    ════════════════════════════════════════════════════ */
 /* 1. Shared layout reset — all elements */
 html, body,
-section, header, footer, .wrapper,
+header, footer, .wrapper,
 div.wrapper {
   float:          none !important;
   width:          auto !important;
   max-width:      none !important;
-  padding:        0 !important;   /* kills any theme body/section padding */
+  padding:        0 !important;
+  margin:         0 !important;
+}
+/* Reset sections too, but WITHOUT padding — our cinematic sections set their own */
+section {
+  float:          none !important;
+  width:          auto !important;
+  max-width:      none !important;
   margin:         0 !important;
 }
 
@@ -217,7 +224,7 @@ main, #main, .wrapper {
   top: 0;
   min-height: 250vh;      /* extra 150vh = scroll buffer; content stays at top */
   width: 100%;
-  padding: 14vh var(--gutter) 0;
+  padding: 14vh var(--gutter) 0 !important;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;   /* pin content at top of sticky card */
@@ -363,7 +370,7 @@ main, #main, .wrapper {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  padding: 14vh var(--gutter) 10vh;
+  padding: 14vh var(--gutter) 10vh !important;
   background: var(--bg-2);
   border-left: 1px solid var(--rule);
   will-change: none;
@@ -444,7 +451,7 @@ main, #main, .wrapper {
 .scene--services-footer {
   position: relative;
   min-height: 100vh;
-  padding: 18vh var(--gutter) 10vh;
+  padding: 18vh var(--gutter) 10vh !important;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
