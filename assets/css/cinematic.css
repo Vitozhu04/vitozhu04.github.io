@@ -1,5 +1,5 @@
 /* ==========================================================
-   Cinematic Homepage v2 — True Lenis-style scroll storytelling
+   Cinematic Homepage v3 — Card stack pubs, asymmetric layout
    Dark, full-bleed, scrubbed animations, dramatic typography
    ========================================================== */
 
@@ -11,12 +11,15 @@
   --bg-2:         #0d0e14;
   --bg-3:         #12131a;
   --text:         #f0f0f2;
-  --text-dim:     rgba(240, 240, 242, 0.42);
+  --text-dim:     rgba(240, 240, 242, 0.45);
   --text-mid:     rgba(240, 240, 242, 0.70);
   --accent:       #3eb7f0;
   --accent-warm:  #e8c67a;
   --accent-red:   #ff6b4a;
   --rule:         rgba(255,255,255,0.07);
+  --gold:         #ffd700;
+  --silver:       #c0c0c0;
+  --bronze:       #cd7f32;
   --font-sans:    'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
   --ease-out:     cubic-bezier(0.16, 1, 0.3, 1);
 }
@@ -32,7 +35,6 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
-/* Kill original theme layout completely */
 main {
   width: 100% !important;
   max-width: none !important;
@@ -182,8 +184,7 @@ main {
 }
 
 /* ────────────────────────────────────────────
-   CHAPTERS — single column, full-bleed
-   Big headline fills the width; body below
+   CHAPTERS — asymmetric full-bleed
 ──────────────────────────────────────────── */
 .chapter {
   min-height: 100vh;
@@ -199,8 +200,18 @@ main {
 
 .chapter--alt { background: var(--bg-2); }
 
-/* horizontal rule at top of each chapter */
-.chapter::after { display: none; }
+/* ── counter ── */
+.chapter__counter {
+  position: absolute;
+  top: 3rem;
+  right: 8vw;
+  font-size: 0.6rem;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--accent);
+  opacity: 0;
+  will-change: opacity;
+}
 
 /* ── label ── */
 .chapter__label {
@@ -208,20 +219,20 @@ main {
   letter-spacing: 0.3em;
   text-transform: uppercase;
   color: var(--accent);
-  margin-bottom: 1.6rem;
+  margin-bottom: 1.5rem;
   opacity: 0;
   transform: translateY(14px);
   will-change: opacity, transform;
 }
 
-/* ── big headline: fills the width ── */
+/* ── big headline ── */
 .chapter__headline-clip {
   overflow: hidden;
-  margin-bottom: 3.5rem;
+  margin-bottom: 0;
 }
 
 .chapter__headline {
-  font-size: clamp(3.5rem, 8.5vw, 9rem);
+  font-size: clamp(4rem, 9vw, 9rem);
   font-weight: 700;
   letter-spacing: -0.04em;
   line-height: 0.93;
@@ -231,10 +242,22 @@ main {
   will-change: transform;
 }
 
-/* ── body: below headline, max readable width ── */
+/* ── divider ── */
+.chapter__divider {
+  width: 100%;
+  height: 1px;
+  background: var(--rule);
+  margin: 2.5rem 0;
+  transform: scaleX(0);
+  transform-origin: left;
+  will-change: transform;
+}
+
+/* ── body: right-aligned, max-width ── */
 .chapter__body {
-  max-width: 680px;
-  font-size: clamp(0.9rem, 1.3vw, 1.02rem);
+  margin-left: auto;
+  max-width: 560px;
+  font-size: 0.95rem;
   color: var(--text-dim);
   line-height: 1.9;
   opacity: 0;
@@ -281,9 +304,9 @@ main {
 
 .timeline-item {
   display: grid;
-  grid-template-columns: 120px 1fr;
+  grid-template-columns: 130px 1fr;
   gap: 2rem;
-  padding: 1.4rem 0;
+  padding: 1.2rem 0;
   border-top: 1px solid var(--rule);
 }
 
@@ -311,6 +334,36 @@ main {
 }
 
 /* ────────────────────────────────────────────
+   RESEARCH TILES
+──────────────────────────────────────────── */
+.research-tile {
+  background: #0e0f14;
+  border-left: 3px solid var(--accent);
+  border-radius: 10px;
+  padding: 1.6rem 2rem;
+  margin-bottom: 0.8rem;
+  transition: transform 0.3s var(--ease-out);
+}
+
+.research-tile:hover {
+  transform: translateX(4px);
+}
+
+.research-tile strong {
+  display: block;
+  color: var(--text) !important;
+  font-weight: 600;
+  margin-bottom: 0.35rem;
+}
+
+.research-tile p {
+  margin: 0;
+  color: var(--text-dim);
+  font-size: 0.9rem;
+  line-height: 1.7;
+}
+
+/* ────────────────────────────────────────────
    NEWS
 ──────────────────────────────────────────── */
 .news-list {
@@ -319,6 +372,9 @@ main {
 }
 
 .news-item {
+  display: flex;
+  flex-direction: row;
+  gap: 2rem;
   padding: 1.1rem 0;
   border-top: 1px solid var(--rule);
   font-size: 0.92rem;
@@ -326,11 +382,20 @@ main {
   line-height: 1.65;
 }
 
-.news-item strong { color: var(--accent); }
+.news-date {
+  font-size: 0.7rem;
+  color: var(--accent);
+  font-family: 'SF Mono', 'Fira Code', 'Consolas', monospace;
+  min-width: 90px;
+  flex-shrink: 0;
+  padding-top: 0.15rem;
+  letter-spacing: 0.02em;
+}
+
 .news-item a { color: var(--accent); text-decoration: none; }
 
 /* ────────────────────────────────────────────
-   PUBLICATIONS
+   PUBLICATIONS — card stack
 ──────────────────────────────────────────── */
 .scene--publications {
   background: var(--bg-3);
@@ -348,11 +413,26 @@ main {
 
 .scene--publications .publications { width: 100%; }
 
+.scene--publications .publications ol {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
 .scene--publications .pub-row {
-  border-top: 1px solid var(--rule) !important;
-  padding: 2rem 0 !important;
-  color: var(--text-dim) !important;
-  background: transparent !important;
+  position: sticky;
+  top: 80px;
+  background: #0d0e14;
+  border-radius: 16px;
+  padding: 2rem 2.5rem !important;
+  margin-bottom: 2rem;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.7), 0 0 0 1px rgba(255,255,255,0.06);
+  transform-origin: top center;
+  transition: transform 0.2s ease;
+  border-top: none !important;
 }
 
 .scene--publications .pub-row .title a { color: var(--text) !important; font-weight: 500; }
@@ -368,6 +448,12 @@ main {
 }
 .scene--publications .btn:hover { background: rgba(62,183,240,0.2) !important; }
 
+/* pub-row li wrapper */
+.scene--publications .publications ol li {
+  list-style: none;
+}
+.scene--publications .publications ol br { display: none; }
+
 /* ────────────────────────────────────────────
    AWARDS
 ──────────────────────────────────────────── */
@@ -378,6 +464,7 @@ main {
 
 .award-item {
   display: flex;
+  flex-direction: row;
   align-items: flex-start;
   gap: 1.2rem;
   padding: 1.2rem 0;
@@ -387,7 +474,16 @@ main {
   will-change: opacity, transform;
 }
 
-.award-item__medal { font-size: 1.2rem; min-width: 1.8rem; }
+.award-item__medal {
+  font-size: 1.2rem;
+  min-width: 1.8rem;
+  transform: scale(0);
+  will-change: transform;
+}
+
+.award-item--gold .award-item__medal { color: var(--gold); }
+.award-item--silver .award-item__medal { color: var(--silver); }
+.award-item--bronze .award-item__medal { color: var(--bronze); }
 
 .award-item__text {
   font-size: 0.95rem;
@@ -502,14 +598,19 @@ main {
   .hero__links,
   .hero__scroll,
   .hero__grid,
+  .chapter__counter,
   .chapter__label,
   .chapter__headline,
-  .chapter__body {
+  .chapter__divider,
+  .chapter__body,
+  .award-item,
+  .award-item__medal {
     opacity: 1 !important;
     transform: none !important;
     transition: none !important;
   }
   .hero__scroll-line { animation: none !important; }
+  .chapter__divider { transform: scaleX(1) !important; }
 }
 
 /* ────────────────────────────────────────────
@@ -518,8 +619,20 @@ main {
 @media (max-width: 768px) {
   .chapter { padding: 10vh 7vw 8vh; }
   .chapter__headline { font-size: clamp(2.8rem, 10vw, 4.5rem); }
+  .chapter__counter { right: 7vw; }
+  .chapter__body {
+    margin-left: 0;
+    max-width: 100%;
+  }
   .scene--publications,
   .scene--services { padding: 10vh 7vw; }
+  .scene--publications .pub-row {
+    padding: 1.4rem 1.2rem !important;
+    border-radius: 10px;
+  }
   .timeline-item { grid-template-columns: 1fr; gap: 0.4rem; }
+  .news-item { flex-direction: column; gap: 0.3rem; }
+  .news-date { min-width: auto; }
+  .research-tile { padding: 1.2rem 1.4rem; }
   .scroll-nav { display: none; }
 }

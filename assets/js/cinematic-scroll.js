@@ -1,6 +1,7 @@
 /* ==========================================================
    cinematic-scroll.js  v3
-   Lenis inertia + GSAP scrubbed animations, 2-column layout
+   Lenis inertia + GSAP scrubbed animations
+   Card-stack publications, asymmetric chapter reveals
    ========================================================== */
 
 (function () {
@@ -40,51 +41,44 @@
   });
 
   /* ══════════════════════════════════════════════
-     CHAPTERS — scrubbed 2-column reveals
+     CHAPTERS — per-chapter scrubbed timeline
   ══════════════════════════════════════════════ */
   document.querySelectorAll('.chapter').forEach((chapter) => {
+    const counter   = chapter.querySelector('.chapter__counter');
     const label     = chapter.querySelector('.chapter__label');
     const headlines = chapter.querySelectorAll('.chapter__headline');
+    const divider   = chapter.querySelector('.chapter__divider');
     const body      = chapter.querySelector('.chapter__body');
-
-    /* vertical rule between columns */
-    const rule = chapter;   /* ::before pseudo – animate via CSS var trick */
-    gsap.to(chapter, {
-      scrollTrigger: { trigger: chapter, start: 'top 80%', end: 'top 30%', scrub: 0.6 },
-      '--rule-scale': 1,    /* custom property driven by CSS (see ::before) */
-      ease: 'none',
-    });
 
     const tl = gsap.timeline({
       scrollTrigger: { trigger: chapter, start: 'top 82%', end: 'top 15%', scrub: 0.75 },
     });
 
-    /* label: slides in from left */
+    /* counter fades in */
+    if (counter)
+      tl.to(counter, { opacity: 1, duration: 0.6, ease: 'none' }, 0);
+
+    /* label slides up */
     if (label)
-      tl.to(label, { opacity: 1, x: 0, duration: 1, ease: 'none' }, 0);
+      tl.to(label, { opacity: 1, y: 0, duration: 0.8, ease: 'none' }, 0.05);
 
-    /* headline: clips up from bottom */
+    /* headline clips up from bottom */
     if (headlines.length)
-      tl.to(headlines, { y: '0%', duration: 1.1, stagger: 0.1, ease: 'none' }, 0.08);
+      tl.to(headlines, { y: '0%', duration: 1.1, stagger: 0.1, ease: 'none' }, 0.1);
 
-    /* body: rises up */
+    /* divider scales in from left */
+    if (divider)
+      tl.to(divider, { scaleX: 1, duration: 1, ease: 'none' }, 0.3);
+
+    /* body rises up + fades in */
     if (body)
-      tl.to(body, { opacity: 1, y: 0, duration: 1, ease: 'none' }, 0.25);
-  });
-
-  /* ── divider rule reveal (pseudo-element via JS) ── */
-  document.querySelectorAll('.chapter').forEach((chapter) => {
-    gsap.fromTo(chapter, { '--divider-scale': 0 }, {
-      '--divider-scale': 1,
-      scrollTrigger: { trigger: chapter, start: 'top 75%', end: 'top 25%', scrub: 0.6 },
-      ease: 'none',
-    });
+      tl.to(body, { opacity: 1, y: 0, duration: 1, ease: 'none' }, 0.4);
   });
 
   /* ══════════════════════════════════════════════
      TIMELINE ITEMS — stagger + slide
   ══════════════════════════════════════════════ */
-  document.querySelectorAll('.timeline-item').forEach((item, i) => {
+  document.querySelectorAll('.timeline-item').forEach((item) => {
     gsap.fromTo(item,
       { opacity: 0, x: 30 },
       {
@@ -95,33 +89,33 @@
   });
 
   /* ══════════════════════════════════════════════
-     NEWS — stagger slide up
+     RESEARCH TILES — stagger slide up
   ══════════════════════════════════════════════ */
-  document.querySelectorAll('.news-item').forEach((item, i) => {
+  document.querySelectorAll('.research-tile').forEach((tile) => {
+    gsap.fromTo(tile,
+      { opacity: 0, x: -20 },
+      {
+        scrollTrigger: { trigger: tile, start: 'top 90%', end: 'top 60%', scrub: 0.5 },
+        opacity: 1, x: 0, ease: 'none',
+      }
+    );
+  });
+
+  /* ══════════════════════════════════════════════
+     NEWS — translateX stagger
+  ══════════════════════════════════════════════ */
+  document.querySelectorAll('.news-item').forEach((item) => {
     gsap.fromTo(item,
-      { opacity: 0, y: 20 },
+      { opacity: 0, x: 40 },
       {
         scrollTrigger: { trigger: item, start: 'top 92%', end: 'top 65%', scrub: 0.4 },
-        opacity: 1, y: 0, ease: 'none',
+        opacity: 1, x: 0, ease: 'none',
       }
     );
   });
 
   /* ══════════════════════════════════════════════
-     AWARDS — stagger scale + fade
-  ══════════════════════════════════════════════ */
-  document.querySelectorAll('.award-item').forEach((item, i) => {
-    gsap.fromTo(item,
-      { opacity: 0, y: 24, scale: 0.97 },
-      {
-        scrollTrigger: { trigger: item, start: 'top 90%', end: 'top 58%', scrub: 0.45 },
-        opacity: 1, y: 0, scale: 1, ease: 'none',
-      }
-    );
-  });
-
-  /* ══════════════════════════════════════════════
-     PUBLICATIONS heading — clip reveal
+     PUBLICATIONS — card stack
   ══════════════════════════════════════════════ */
   const pubHeading = document.querySelector('.scene--publications h2');
   if (pubHeading) {
@@ -134,19 +128,67 @@
     );
   }
 
-  /* pub rows stagger */
-  document.querySelectorAll('.pub-row').forEach((row, i) => {
-    gsap.fromTo(row,
-      { opacity: 0, y: 30 },
+  /* card stack: as each card enters, scale previous cards down */
+  const pubCards = gsap.utils.toArray('.pub-row');
+  pubCards.forEach((card, i) => {
+    /* entrance animation */
+    gsap.fromTo(card,
+      { opacity: 0, y: 40 },
       {
-        scrollTrigger: { trigger: row, start: 'top 92%', end: 'top 60%', scrub: 0.5 },
+        scrollTrigger: { trigger: card, start: 'top 92%', end: 'top 60%', scrub: 0.5 },
         opacity: 1, y: 0, ease: 'none',
       }
     );
+
+    /* scale previous cards as this one enters */
+    if (i > 0) {
+      ScrollTrigger.create({
+        trigger: card,
+        start: 'top 80%',
+        end: 'top 20%',
+        scrub: 0.5,
+        onUpdate: (self) => {
+          for (let j = 0; j < i; j++) {
+            const distance = i - j;
+            const scaleVal = 1 - (self.progress * 0.04 * distance);
+            gsap.set(pubCards[j], { scale: Math.max(scaleVal, 0.88) });
+          }
+        },
+      });
+    }
   });
 
   /* ══════════════════════════════════════════════
-     SCROLL NAV DOTS
+     AWARDS — medal scale bounce on enter
+  ══════════════════════════════════════════════ */
+  document.querySelectorAll('.award-item').forEach((item) => {
+    const medal = item.querySelector('.award-item__medal');
+
+    gsap.fromTo(item,
+      { opacity: 0, y: 24 },
+      {
+        scrollTrigger: { trigger: item, start: 'top 90%', end: 'top 58%', scrub: 0.45 },
+        opacity: 1, y: 0, ease: 'none',
+      }
+    );
+
+    if (medal) {
+      ScrollTrigger.create({
+        trigger: item,
+        start: 'top 80%',
+        onEnter: () => {
+          gsap.fromTo(medal,
+            { scale: 0 },
+            { scale: 1, duration: 0.6, ease: 'back.out(3)' }
+          );
+        },
+        once: true,
+      });
+    }
+  });
+
+  /* ══════════════════════════════════════════════
+     SCROLL NAV DOTS — 7 sections
   ══════════════════════════════════════════════ */
   const navEl   = document.querySelector('.scroll-nav');
   const dots    = navEl ? [...navEl.querySelectorAll('.scroll-nav__dot')] : [];
