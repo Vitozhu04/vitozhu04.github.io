@@ -144,7 +144,7 @@
     scrollTrigger: {
       trigger: pubSection,
       start: 'top top',
-      end: function () { return '+=' + ((n - 1) * window.innerHeight); },
+      end: function () { return '+=' + ((n - 1) * window.innerHeight * 1.5); },
       pin: true,
       pinSpacing: true,
       scrub: true,

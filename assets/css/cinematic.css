@@ -9,24 +9,38 @@
                       footer{position:fixed;float:left}
    Must neutralise these before ANY cinematic styles.
    ════════════════════════════════════════════════════ */
+/* 1. Shared layout reset — all elements */
 html, body,
 section, header, footer, .wrapper,
 div.wrapper {
   float:          none !important;
-  position:       static !important;
   width:          auto !important;
   max-width:      none !important;
   padding:        0 !important;   /* kills any theme body/section padding */
   margin:         0 !important;
+}
+
+/* 2. Position reset — non-section elements (keep !important) */
+html, body,
+header, footer, .wrapper,
+div.wrapper {
+  position:       static !important;
   left: auto !important; right: auto !important;
   bottom: auto !important; top: auto !important;
+}
+
+/* 3. Section position — NO !important, so GSAP can override with inline styles */
+section {
+  position: static;
+  left: auto; right: auto;
+  bottom: auto; top: auto;
 }
 
 /* Re-allow position for our own named elements */
 .sidebar-nav            { position: fixed    !important; }
 .scene--hero            { position: relative !important; overflow: hidden !important; }
 .chapter                { position: sticky   !important; top: 0 !important; }
-.scene--publications    { position: relative !important; }
+.scene--publications    { position: relative; }
 .scene--services-footer { position: relative !important; }
 /* .pub-card is now position:relative (in-flow gallery slide) — no override needed */
 .hero__grid, .hero__orb, .hero__scroll { position: absolute !important; }
@@ -207,7 +221,7 @@ main, #main, .wrapper {
   display: flex;
   flex-direction: column;
   justify-content: flex-start;   /* pin content at top of sticky card */
-  align-items: flex-start;
+  align-items: center;
   border-top: 1px solid var(--rule);
   background: var(--bg);
   will-change: transform;
@@ -220,6 +234,12 @@ main, #main, .wrapper {
   font-size: 0.6rem; letter-spacing: 0.3em; text-transform: uppercase;
   color: var(--accent);
   opacity: 1; /* always visible */
+}
+.chapter__label,
+.chapter__headline-clip,
+.chapter__divider {
+  width: 100%;
+  max-width: min(860px, 72vw);
 }
 .chapter__label {
   font-size: 0.62rem; letter-spacing: 0.3em; text-transform: uppercase;
@@ -299,7 +319,7 @@ main, #main, .wrapper {
 
 /* ── Publications — horizontal gallery slideshow ── */
 .scene--publications {
-  position: relative !important;
+  position: relative;
   min-height: 100vh;
   background: var(--bg-2);
   border-top: 1px solid var(--rule);
@@ -310,7 +330,9 @@ main, #main, .wrapper {
 .pub-section__header {
   position: absolute;
   top: 8vh;
-  left: var(--gutter);
+  left: 50%;
+  transform: translateX(-50%);
+  width: min(860px, 72vw);
   z-index: 10;
   pointer-events: none;
 }
@@ -338,6 +360,7 @@ main, #main, .wrapper {
   display: flex;
   flex-direction: column;
   justify-content: center;
+  align-items: center;
   padding: 18vh var(--gutter) 10vh;
   background: var(--bg-2);
   border-left: 1px solid var(--rule);
@@ -345,6 +368,13 @@ main, #main, .wrapper {
 }
 .pub-card:first-child { border-left: none; }
 
+.pub-card__badges,
+.pub-card__title,
+.pub-card__meta,
+.pub-card__links {
+  width: 100%;
+  max-width: min(860px, 72vw);
+}
 .pub-card__badges {
   display: flex; gap: 0.6rem; align-items: center;
   margin-bottom: 2rem;
@@ -377,7 +407,6 @@ main, #main, .wrapper {
   border-radius: 4px; font-size: 0.62rem; letter-spacing: 0.08em;
 }
 .pub-card__meta {
-  grid-column: 1; grid-row: 3;
   display: flex; flex-direction: column; gap: 0.2rem;
   overflow: hidden;
 }
