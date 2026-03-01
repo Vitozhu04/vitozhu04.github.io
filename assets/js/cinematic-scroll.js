@@ -67,9 +67,9 @@
     if (headlines.length)
       tl.to(headlines, { y: '0%', duration: 1.1, stagger: 0.1, ease: 'none' }, 0.08);
 
-    /* body: slides in from right */
+    /* body: rises up */
     if (body)
-      tl.to(body, { opacity: 1, x: 0, duration: 1, ease: 'none' }, 0.2);
+      tl.to(body, { opacity: 1, y: 0, duration: 1, ease: 'none' }, 0.25);
   });
 
   /* ── divider rule reveal (pseudo-element via JS) ── */

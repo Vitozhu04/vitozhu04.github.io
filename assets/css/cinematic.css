@@ -182,17 +182,15 @@ main {
 }
 
 /* ────────────────────────────────────────────
-   CHAPTERS — 2-column full-bleed layout
+   CHAPTERS — single column, full-bleed
+   Big headline fills the width; body below
 ──────────────────────────────────────────── */
 .chapter {
   min-height: 100vh;
-  padding: 12vh 8vw;
-  display: grid;
-  grid-template-columns: 42% 1fr;
-  grid-template-rows: auto 1fr;
-  column-gap: 6vw;
-  row-gap: 0;
-  align-items: start;
+  padding: 12vh 8vw 10vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
   position: relative;
   border-top: 1px solid var(--rule);
   background: var(--bg);
@@ -201,102 +199,77 @@ main {
 
 .chapter--alt { background: var(--bg-2); }
 
-/* Left column: label + headline */
+/* horizontal rule at top of each chapter */
+.chapter::after { display: none; }
+
+/* ── label ── */
 .chapter__label {
-  grid-column: 1;
-  grid-row: 1;
-  font-size: 0.65rem;
+  font-size: 0.62rem;
   letter-spacing: 0.3em;
   text-transform: uppercase;
   color: var(--accent);
-  margin-bottom: 2rem;
+  margin-bottom: 1.6rem;
   opacity: 0;
-  transform: translateX(-30px);
+  transform: translateY(14px);
   will-change: opacity, transform;
 }
 
+/* ── big headline: fills the width ── */
 .chapter__headline-clip {
-  grid-column: 1;
-  grid-row: 2;
   overflow: hidden;
-  align-self: start;
+  margin-bottom: 3.5rem;
 }
 
 .chapter__headline {
-  font-size: clamp(2.5rem, 5.5vw, 5rem);
+  font-size: clamp(3.5rem, 8.5vw, 9rem);
   font-weight: 700;
-  letter-spacing: -0.03em;
-  line-height: 1.05;
+  letter-spacing: -0.04em;
+  line-height: 0.93;
   color: var(--text);
   display: block;
-  transform: translateY(110%);
+  transform: translateY(112%);
   will-change: transform;
 }
 
-/* Right column: body/lists — spans both rows */
+/* ── body: below headline, max readable width ── */
 .chapter__body {
-  grid-column: 2;
-  grid-row: 1 / span 2;
-  align-self: center;
-  font-size: clamp(0.9rem, 1.4vw, 1.05rem);
+  max-width: 680px;
+  font-size: clamp(0.9rem, 1.3vw, 1.02rem);
   color: var(--text-dim);
   line-height: 1.9;
   opacity: 0;
-  transform: translateX(40px);
+  transform: translateY(20px);
   will-change: opacity, transform;
-  padding-top: 3.5rem; /* align with headline visually */
 }
 
+.chapter__body p + p { margin-top: 1rem; }
 .chapter__body strong { color: var(--text-mid); font-weight: 500; }
+
 .chapter__body a {
   color: var(--accent);
   text-decoration: none;
-  position: relative;
-  padding-bottom: 1px;
   background-image: linear-gradient(var(--accent), var(--accent));
   background-size: 0 1px;
   background-repeat: no-repeat;
   background-position: left bottom;
-  transition: background-size 0.3s var(--ease-out);
+  transition: background-size 0.35s var(--ease-out);
 }
 .chapter__body a:hover { background-size: 100% 1px; }
 
 .chapter__body ul {
   list-style: none;
-  margin-top: 0.5rem;
+  margin: 0;
+  padding: 0;
 }
-.chapter__body li {
-  padding: 0.6rem 0;
+.chapter__body > ul > li {
+  padding: 0.9rem 0;
   border-top: 1px solid var(--rule);
-  position: relative;
-  padding-left: 1.2rem;
+  font-size: 0.96rem;
 }
-.chapter__body li::before {
-  content: '—';
-  position: absolute;
-  left: 0;
-  color: var(--accent);
-  font-size: 0.8em;
-}
-
-/* Decorative vertical rule between columns */
-.chapter::before {
-  content: '';
-  position: absolute;
-  left: calc(42% + 8vw);
-  top: 10vh;
-  bottom: 10vh;
-  width: 1px;
-  background: linear-gradient(to bottom, transparent, var(--rule) 20%, var(--rule) 80%, transparent);
-  transform: scaleY(0);
-  transform-origin: top;
-  will-change: transform;
-}
-
-/* Stagger helper for lists inside chapter__body */
+.chapter__body > ul > li:last-child { border-bottom: 1px solid var(--rule); }
 .chapter__body .timeline,
 .chapter__body .news-list,
-.chapter__body .awards-list { margin-top: 0; }
+.chapter__body .awards-list { width: 100%; }
 
 /* ────────────────────────────────────────────
    CAREER TIMELINE
@@ -308,13 +281,10 @@ main {
 
 .timeline-item {
   display: grid;
-  grid-template-columns: 140px 1fr;
+  grid-template-columns: 120px 1fr;
   gap: 2rem;
-  padding: 1.75rem 0;
+  padding: 1.4rem 0;
   border-top: 1px solid var(--rule);
-  opacity: 0;
-  transform: translateX(-28px);
-  will-change: opacity, transform;
 }
 
 .timeline-item__year {
@@ -351,12 +321,9 @@ main {
 .news-item {
   padding: 1.1rem 0;
   border-top: 1px solid var(--rule);
-  font-size: 0.95rem;
+  font-size: 0.92rem;
   color: var(--text-dim);
   line-height: 1.65;
-  opacity: 0;
-  transform: translateY(16px);
-  will-change: opacity, transform;
 }
 
 .news-item strong { color: var(--accent); }
@@ -537,10 +504,7 @@ main {
   .hero__grid,
   .chapter__label,
   .chapter__headline,
-  .chapter__body,
-  .timeline-item,
-  .news-item,
-  .award-item {
+  .chapter__body {
     opacity: 1 !important;
     transform: none !important;
     transition: none !important;
@@ -552,9 +516,10 @@ main {
    MOBILE
 ──────────────────────────────────────────── */
 @media (max-width: 768px) {
-  .chapter { padding: 10vh 7vw; }
+  .chapter { padding: 10vh 7vw 8vh; }
+  .chapter__headline { font-size: clamp(2.8rem, 10vw, 4.5rem); }
   .scene--publications,
   .scene--services { padding: 10vh 7vw; }
-  .timeline-item { grid-template-columns: 1fr; gap: 0.5rem; }
+  .timeline-item { grid-template-columns: 1fr; gap: 0.4rem; }
   .scroll-nav { display: none; }
 }
