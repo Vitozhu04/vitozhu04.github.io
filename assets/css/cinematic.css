@@ -182,74 +182,121 @@ main {
 }
 
 /* ────────────────────────────────────────────
-   CHAPTERS
+   CHAPTERS — 2-column full-bleed layout
 ──────────────────────────────────────────── */
 .chapter {
   min-height: 100vh;
-  padding: 12vh 10vw;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
+  padding: 12vh 8vw;
+  display: grid;
+  grid-template-columns: 42% 1fr;
+  grid-template-rows: auto 1fr;
+  column-gap: 6vw;
+  row-gap: 0;
+  align-items: start;
   position: relative;
   border-top: 1px solid var(--rule);
   background: var(--bg);
+  overflow: hidden;
 }
 
 .chapter--alt { background: var(--bg-2); }
 
+/* Left column: label + headline */
 .chapter__label {
+  grid-column: 1;
+  grid-row: 1;
   font-size: 0.65rem;
   letter-spacing: 0.3em;
   text-transform: uppercase;
   color: var(--accent);
-  margin-bottom: 2.5rem;
+  margin-bottom: 2rem;
   opacity: 0;
-  transform: translateX(-20px);
+  transform: translateX(-30px);
   will-change: opacity, transform;
 }
 
 .chapter__headline-clip {
+  grid-column: 1;
+  grid-row: 2;
   overflow: hidden;
-  margin-bottom: 2.5rem;
+  align-self: start;
 }
 
 .chapter__headline {
-  font-size: clamp(2rem, 5vw, 4rem);
+  font-size: clamp(2.5rem, 5.5vw, 5rem);
   font-weight: 700;
-  letter-spacing: -0.025em;
-  line-height: 1.1;
+  letter-spacing: -0.03em;
+  line-height: 1.05;
   color: var(--text);
   display: block;
   transform: translateY(110%);
   will-change: transform;
 }
 
+/* Right column: body/lists — spans both rows */
 .chapter__body {
-  max-width: 700px;
-  font-size: clamp(0.9rem, 1.5vw, 1.05rem);
+  grid-column: 2;
+  grid-row: 1 / span 2;
+  align-self: center;
+  font-size: clamp(0.9rem, 1.4vw, 1.05rem);
   color: var(--text-dim);
-  line-height: 1.85;
+  line-height: 1.9;
   opacity: 0;
-  transform: translateY(24px);
+  transform: translateX(40px);
   will-change: opacity, transform;
+  padding-top: 3.5rem; /* align with headline visually */
 }
 
 .chapter__body strong { color: var(--text-mid); font-weight: 500; }
 .chapter__body a {
   color: var(--accent);
   text-decoration: none;
-  border-bottom: 1px solid rgba(62,183,240,0.25);
-  transition: border-color 0.2s;
+  position: relative;
+  padding-bottom: 1px;
+  background-image: linear-gradient(var(--accent), var(--accent));
+  background-size: 0 1px;
+  background-repeat: no-repeat;
+  background-position: left bottom;
+  transition: background-size 0.3s var(--ease-out);
 }
-.chapter__body a:hover { border-color: var(--accent); }
+.chapter__body a:hover { background-size: 100% 1px; }
 
 .chapter__body ul {
-  padding-left: 1.2em;
-  margin-top: 0.75rem;
+  list-style: none;
+  margin-top: 0.5rem;
 }
 .chapter__body li {
-  margin-bottom: 0.5rem;
+  padding: 0.6rem 0;
+  border-top: 1px solid var(--rule);
+  position: relative;
+  padding-left: 1.2rem;
 }
+.chapter__body li::before {
+  content: '—';
+  position: absolute;
+  left: 0;
+  color: var(--accent);
+  font-size: 0.8em;
+}
+
+/* Decorative vertical rule between columns */
+.chapter::before {
+  content: '';
+  position: absolute;
+  left: calc(42% + 8vw);
+  top: 10vh;
+  bottom: 10vh;
+  width: 1px;
+  background: linear-gradient(to bottom, transparent, var(--rule) 20%, var(--rule) 80%, transparent);
+  transform: scaleY(0);
+  transform-origin: top;
+  will-change: transform;
+}
+
+/* Stagger helper for lists inside chapter__body */
+.chapter__body .timeline,
+.chapter__body .news-list,
+.chapter__body .awards-list { margin-top: 0; }
 
 /* ────────────────────────────────────────────
    CAREER TIMELINE
