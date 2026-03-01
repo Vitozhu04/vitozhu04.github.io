@@ -1,7 +1,7 @@
 /* ==========================================================
-   cinematic-scroll.js  v3
+   cinematic-scroll.js  v4
    Lenis inertia + GSAP scrubbed animations
-   Card-stack publications, asymmetric chapter reveals
+   Right fly-in cards, varied chapter anims, GSAP pub stack, sidebar nav
    ========================================================== */
 
 (function () {
@@ -17,6 +17,8 @@
   gsap.ticker.add((t) => lenis.raf(t * 1000));
   gsap.ticker.lagSmoothing(0);
   lenis.on('scroll', ScrollTrigger.update);
+
+  const isMobile = window.matchMedia('(max-width:1024px)').matches;
 
   /* ══════════════════════════════════════════════
      HERO ENTRANCE
@@ -41,9 +43,95 @@
   });
 
   /* ══════════════════════════════════════════════
-     CHAPTERS — per-chapter scrubbed timeline
+     SIDEBAR NAV — show after hero, active dots, click-to-scroll
   ══════════════════════════════════════════════ */
-  document.querySelectorAll('.chapter').forEach((chapter) => {
+  const sidebarNav = document.querySelector('.sidebar-nav');
+  const sidebarItems = sidebarNav ? [...sidebarNav.querySelectorAll('.sidebar-nav__item')] : [];
+  const sections = [...document.querySelectorAll('[data-section]')];
+
+  if (sidebarNav && !isMobile) {
+    /* Show sidebar after scrolling past hero */
+    ScrollTrigger.create({
+      trigger: '.scene--hero',
+      start: 'bottom 80%',
+      onEnter: () => sidebarNav.classList.add('visible'),
+      onLeaveBack: () => sidebarNav.classList.remove('visible'),
+    });
+
+    /* Click to scroll */
+    sidebarItems.forEach((item) => {
+      const target = item.getAttribute('data-target');
+      const section = document.querySelector('[data-section="' + target + '"]');
+      if (section) {
+        item.addEventListener('click', () => {
+          lenis.scrollTo(section, { offset: -60, duration: 2.4, easing: (t) => 1 - Math.pow(1 - t, 4) });
+        });
+      }
+    });
+
+    /* Active dot tracking */
+    sections.forEach((sec) => {
+      const sectionName = sec.getAttribute('data-section');
+      const matchingItem = sidebarItems.find((item) => item.getAttribute('data-target') === sectionName);
+      if (!matchingItem) return;
+      const dot = matchingItem.querySelector('.sidebar-nav__dot');
+
+      ScrollTrigger.create({
+        trigger: sec,
+        start: 'top 60%',
+        end: 'bottom 40%',
+        onToggle: ({ isActive }) => {
+          if (dot) dot.classList.toggle('active', isActive);
+          matchingItem.classList.toggle('active', isActive);
+        },
+      });
+    });
+
+    /* Magnetic hover on dots */
+    sidebarItems.forEach((item) => {
+      const dot = item.querySelector('.sidebar-nav__dot');
+      if (!dot) return;
+      item.addEventListener('mouseenter', () => gsap.to(dot, { scale: 2, duration: 0.3, ease: 'back.out(2)' }));
+      item.addEventListener('mouseleave', () => gsap.to(dot, { scale: dot.classList.contains('active') ? 1.5 : 1, duration: 0.3, ease: 'back.out(2)' }));
+    });
+  }
+
+  /* ══════════════════════════════════════════════
+     CHAPTERS — varied fly-in directions (desktop only)
+  ══════════════════════════════════════════════ */
+  const chapterAnimConfig = {
+    about:    { xPercent: 100, yPercent: 0 },
+    career:   { xPercent: -100, yPercent: 0 },
+    research: { xPercent: 0, yPercent: 100 },
+    news:     { xPercent: 100, yPercent: 0 },
+    awards:   { xPercent: 100, yPercent: 0 },
+  };
+
+  const allChapters = gsap.utils.toArray('.chapter');
+
+  allChapters.forEach((chapter, i) => {
+    const sectionName = chapter.getAttribute('data-section');
+    const config = chapterAnimConfig[sectionName];
+
+    if (!isMobile && config) {
+      /* Fly-in animation for the entire chapter card */
+      gsap.fromTo(chapter,
+        { xPercent: config.xPercent, yPercent: config.yPercent },
+        {
+          scrollTrigger: {
+            trigger: chapter,
+            start: 'top bottom',
+            end: 'top 20%',
+            scrub: 0.7,
+          },
+          xPercent: 0,
+          yPercent: 0,
+          ease: 'none',
+        }
+      );
+    }
+
+    /* Internal content animations (always, both mobile and desktop) */
     const counter   = chapter.querySelector('.chapter__counter');
     const label     = chapter.querySelector('.chapter__label');
     const headlines = chapter.querySelectorAll('.chapter__headline');
@@ -51,29 +139,56 @@
     const body      = chapter.querySelector('.chapter__body');
 
     const tl = gsap.timeline({
-      scrollTrigger: { trigger: chapter, start: 'top 82%', end: 'top 15%', scrub: 0.75 },
+      scrollTrigger: { trigger: chapter, start: 'top 70%', end: 'top 15%', scrub: 0.75 },
     });
 
-    /* counter fades in */
-    if (counter)
-      tl.to(counter, { opacity: 1, duration: 0.6, ease: 'none' }, 0);
-
-    /* label slides up */
-    if (label)
-      tl.to(label, { opacity: 1, y: 0, duration: 0.8, ease: 'none' }, 0.05);
-
-    /* headline clips up from bottom */
-    if (headlines.length)
-      tl.to(headlines, { y: '0%', duration: 1.1, stagger: 0.1, ease: 'none' }, 0.1);
-
-    /* divider scales in from left */
-    if (divider)
-      tl.to(divider, { scaleX: 1, duration: 1, ease: 'none' }, 0.3);
-
-    /* body rises up + fades in */
-    if (body)
-      tl.to(body, { opacity: 1, y: 0, duration: 1, ease: 'none' }, 0.4);
+    if (counter) tl.to(counter, { opacity: 1, duration: 0.6, ease: 'none' }, 0);
+    if (label)   tl.to(label, { opacity: 1, y: 0, duration: 0.8, ease: 'none' }, 0.05);
+    if (headlines.length) tl.to(headlines, { y: '0%', duration: 1.1, stagger: 0.1, ease: 'none' }, 0.1);
+    if (divider) tl.to(divider, { scaleX: 1, duration: 1, ease: 'none' }, 0.3);
+    if (body)    tl.to(body, { opacity: 1, y: 0, duration: 1, ease: 'none' }, 0.4);
   });
+
+  /* Chapter scale-down when next one enters (desktop only) */
+  if (!isMobile) {
+    allChapters.forEach((chapter, i) => {
+      if (i < allChapters.length - 1) {
+        const nextChapter = allChapters[i + 1];
+        gsap.to(chapter, {
+          scrollTrigger: {
+            trigger: nextChapter,
+            start: 'top bottom',
+            end: 'top 30%',
+            scrub: 0.5,
+          },
+          scale: 0.96,
+          filter: 'brightness(0.75)',
+          ease: 'none',
+        });
+      }
+    });
+  }
+
+  /* ══════════════════════════════════════════════
+     SERVICES+FOOTER — slide up
+  ══════════════════════════════════════════════ */
+  const servicesSection = document.querySelector('.scene--services-footer');
+  if (servicesSection && !isMobile) {
+    gsap.fromTo(servicesSection,
+      { yPercent: 50, opacity: 0 },
+      {
+        scrollTrigger: {
+          trigger: servicesSection,
+          start: 'top bottom',
+          end: 'top 30%',
+          scrub: 0.6,
+        },
+        yPercent: 0,
+        opacity: 1,
+        ease: 'none',
+      }
+    );
+  }
 
   /* ══════════════════════════════════════════════
      TIMELINE ITEMS — stagger + slide
@@ -89,7 +204,7 @@
   });
 
   /* ══════════════════════════════════════════════
-     RESEARCH TILES — stagger slide up
+     RESEARCH TILES — stagger slide
   ══════════════════════════════════════════════ */
   document.querySelectorAll('.research-tile').forEach((tile) => {
     gsap.fromTo(tile,
@@ -102,7 +217,7 @@
   });
 
   /* ══════════════════════════════════════════════
-     NEWS — translateX stagger
+     NEWS — staggered scrub reveals
   ══════════════════════════════════════════════ */
   document.querySelectorAll('.news-item').forEach((item) => {
     gsap.fromTo(item,
@@ -115,57 +230,70 @@
   });
 
   /* ══════════════════════════════════════════════
-     PUBLICATIONS — card stack
+     PUBLICATIONS — GSAP pinned card stack (desktop only)
   ══════════════════════════════════════════════ */
-  const pubHeading = document.querySelector('.scene--publications h2');
-  if (pubHeading) {
-    gsap.fromTo(pubHeading,
-      { opacity: 0, y: 40 },
-      {
-        scrollTrigger: { trigger: pubHeading, start: 'top 82%', end: 'top 45%', scrub: 0.6 },
-        opacity: 1, y: 0, ease: 'none',
+  const pubStack = document.querySelector('.pub-stack');
+  const pubCards = pubStack ? gsap.utils.toArray('.pub-card') : [];
+
+  if (pubStack && pubCards.length > 0 && !isMobile) {
+    /* Set z-index for proper stacking */
+    pubCards.forEach((card, i) => {
+      card.style.zIndex = i + 1;
+    });
+
+    /* Pin the pub-stack for the duration of all cards */
+    const totalScrollDistance = pubCards.length * 100; /* vh per card */
+
+    ScrollTrigger.create({
+      trigger: pubStack,
+      start: 'top top',
+      end: '+=' + (totalScrollDistance) + '%',
+      pin: true,
+      pinSpacing: true,
+    });
+
+    /* Each card flies in from xPercent:100 and scales down previous */
+    pubCards.forEach((card, i) => {
+      if (i === 0) {
+        /* First card is already visible */
+        gsap.set(card, { xPercent: 0 });
+      } else {
+        /* Subsequent cards fly in from the right */
+        gsap.fromTo(card,
+          { xPercent: 100 },
+          {
+            scrollTrigger: {
+              trigger: pubStack,
+              start: 'top top+=' + (i * (totalScrollDistance / pubCards.length)) + '%',
+              end: 'top top+=' + ((i + 0.7) * (totalScrollDistance / pubCards.length)) + '%',
+              scrub: 0.5,
+            },
+            xPercent: 0,
+            ease: 'none',
+          }
+        );
+
+        /* Scale down previous cards */
+        for (let j = 0; j < i; j++) {
+          const scaleVal = 1 - (0.03 * (i - j));
+          gsap.to(pubCards[j], {
+            scrollTrigger: {
+              trigger: pubStack,
+              start: 'top top+=' + (i * (totalScrollDistance / pubCards.length)) + '%',
+              end: 'top top+=' + ((i + 0.5) * (totalScrollDistance / pubCards.length)) + '%',
+              scrub: 0.5,
+            },
+            scale: Math.max(scaleVal, 0.88),
+            filter: 'brightness(' + Math.max(0.6, 1 - 0.12 * (i - j)) + ')',
+            ease: 'none',
+          });
+        }
       }
-    );
+    });
   }
 
-  /* card stack: as each card enters, scale previous cards down */
-  const pubCards = gsap.utils.toArray('.pub-row');
-  pubCards.forEach((card, i) => {
-    /* entrance animation */
-    gsap.fromTo(card,
-      { opacity: 0, y: 40 },
-      {
-        scrollTrigger: { trigger: card, start: 'top 92%', end: 'top 60%', scrub: 0.5 },
-        opacity: 1, y: 0, ease: 'none',
-      }
-    );
-
-    /* scale previous cards as this one enters */
-    if (i > 0) {
-      ScrollTrigger.create({
-        trigger: card,
-        start: 'top 80%',
-        end: 'top 20%',
-        scrub: 0.5,
-        onUpdate: (self) => {
-          for (let j = 0; j < i; j++) {
-            const distance = i - j;
-            const scaleVal = 1 - (self.progress * 0.04 * distance);
-            gsap.set(pubCards[j], { scale: Math.max(scaleVal, 0.88) });
-          }
-        },
-      });
-    }
-  });
-
-  /* card stack: per-card top offset + z-index */
-  pubCards.forEach((card, i) => {
-    card.style.top = (80 + i * 14) + 'px';
-    card.style.zIndex = i + 1;
-  });
-
   /* ══════════════════════════════════════════════
-     AWARDS — medal scale bounce on enter
+     AWARDS — medal bounce on enter
   ══════════════════════════════════════════════ */
   document.querySelectorAll('.award-item').forEach((item) => {
     const medal = item.querySelector('.award-item__medal');
@@ -191,39 +319,6 @@
         once: true,
       });
     }
-  });
-
-  /* ══════════════════════════════════════════════
-     SCROLL NAV DOTS — 7 sections
-  ══════════════════════════════════════════════ */
-  const navEl   = document.querySelector('.scroll-nav');
-  const dots    = navEl ? [...navEl.querySelectorAll('.scroll-nav__dot')] : [];
-  const sections = [...document.querySelectorAll('[data-section]')];
-
-  let shown = false;
-  lenis.on('scroll', ({ scroll }) => {
-    if (!shown && scroll > 80) { navEl && navEl.classList.add('visible'); shown = true; }
-  });
-
-  sections.forEach((sec, i) => {
-    if (!dots[i]) return;
-    dots[i].addEventListener('click', () => {
-      lenis.scrollTo(sec, { offset: -60, duration: 2.4, easing: (t) => 1 - Math.pow(1 - t, 4) });
-    });
-    ScrollTrigger.create({
-      trigger: sec,
-      start: 'top 60%',
-      end: 'bottom 40%',
-      onToggle: ({ isActive }) => dots[i].classList.toggle('active', isActive),
-    });
-  });
-
-  /* ══════════════════════════════════════════════
-     MAGNETIC NAV DOTS micro-interaction
-  ══════════════════════════════════════════════ */
-  dots.forEach((dot) => {
-    dot.addEventListener('mouseenter', () => gsap.to(dot, { scale: 1.8, duration: 0.3, ease: 'back.out(2)' }));
-    dot.addEventListener('mouseleave', () => gsap.to(dot, { scale: dot.classList.contains('active') ? 1.6 : 1, duration: 0.3, ease: 'back.out(2)' }));
   });
 
 })();
