@@ -34,86 +34,77 @@
     <link rel="stylesheet" href="./assets/css/publications-no-dark-mode.css">
     {% endif %}
 
-    <!-- Lenis smooth-scroll base styles -->
+    <!-- Lenis smooth-scroll -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lenis@1/dist/lenis.min.css" crossorigin="anonymous">
-    <!-- Cinematic overlay styles (loads last to override layout) -->
+    <!-- Cinematic overrides (loaded last) -->
     <link rel="stylesheet" href="./assets/css/cinematic.css">
 
-    <!-- No-JS fallback: make all scenes visible when scripting is disabled -->
-    <noscript><style>.scene:not(.scene--hero){opacity:1!important;transform:none!important}</style></noscript>
+    <noscript><style>
+      .hero__name,.hero__eyebrow,.hero__tagline,.hero__links,.hero__scroll,.hero__grid,
+      .chapter__label,.chapter__headline,.chapter__body,
+      .timeline-item,.news-item,.award-item { opacity:1!important; transform:none!important; }
+    </style></noscript>
   </head>
   <body>
+
+    <!-- ── scroll nav dots ── -->
+    <nav class="scroll-nav" aria-label="Section navigation">
+      <button class="scroll-nav__dot" data-label="About"     aria-label="About"></button>
+      <button class="scroll-nav__dot" data-label="Career"    aria-label="Career"></button>
+      <button class="scroll-nav__dot" data-label="Research"  aria-label="Research"></button>
+      <button class="scroll-nav__dot" data-label="News"      aria-label="News"></button>
+      <button class="scroll-nav__dot" data-label="Papers"    aria-label="Publications"></button>
+      <button class="scroll-nav__dot" data-label="Awards"    aria-label="Awards"></button>
+      <button class="scroll-nav__dot" data-label="Service"   aria-label="Services"></button>
+    </nav>
+
     <main>
-      <!-- ====== Hero Scene ====== -->
-      <section class="scene scene--hero" aria-label="Introduction">
-        <div class="hero">
-          {% if site.avatar %}
-          <div class="hero__avatar-wrap">
-            <img src="{{ site.avatar }}" alt="{{ site.title }}" class="hero__avatar" />
+
+      <!-- ══ Hero ══ -->
+      <section class="scene--hero" aria-label="Introduction">
+        <div class="hero__grid" aria-hidden="true"></div>
+        <div class="hero__orb"  aria-hidden="true"></div>
+
+        <div class="hero__inner">
+          <p class="hero__eyebrow">AI Research &amp; Engineering</p>
+
+          <div class="hero__name-clip" aria-hidden="true">
+            <span class="hero__name">{{ site.title }}</span>
           </div>
-          {% endif %}
 
-          <h1 class="hero__name">{{ site.title }}</h1>
-
-          {% if site.position %}
-          <p class="hero__position">{{ site.position }}</p>
-          {% endif %}
-          {% if site.affiliation %}
-          <p class="hero__affiliation">
-            <a href="{{ site.affiliation_link }}" rel="noopener">{{ site.affiliation }}</a>
+          <p class="hero__tagline">
+            {% if site.position %}{{ site.position }}{% endif %}
+            {% if site.affiliation %} · <a href="{{ site.affiliation_link }}" rel="noopener" style="color:inherit;border-bottom:1px solid rgba(240,240,242,0.2);">{{ site.affiliation }}</a>{% endif %}
           </p>
-          {% endif %}
-          {% if site.email %}
-          <p class="hero__email">{{ site.email }}</p>
-          {% endif %}
 
-          <div class="hero__social social-icons">
-            {% if site.google_scholar %}
-            <a href="{{ site.google_scholar }}" aria-label="Google Scholar">
-              <i class="ai ai-google-scholar" style="font-size:1.2rem"></i>
-            </a>
-            {% endif %}
-            {% if site.cv_link %}
-            <a href="{{ site.cv_link }}" aria-label="CV">
-              <i class="ai ai-cv" style="font-size:1.3rem;"></i>
-            </a>
-            {% endif %}
-            {% if site.github_link %}
-            <a href="{{ site.github_link }}" aria-label="GitHub">
-              <i class="fab fa-github"></i>
-            </a>
-            {% endif %}
-            {% if site.linkedin %}
-            <a href="{{ site.linkedin }}" aria-label="LinkedIn">
-              <i class="fab fa-linkedin"></i>
-            </a>
-            {% endif %}
-            {% if site.twitter %}
-            <a href="{{ site.twitter }}" aria-label="Twitter">
-              <i class="fab fa-x-twitter"></i>
-            </a>
-            {% endif %}
+          <div class="hero__links">
+            {% if site.google_scholar %}<a href="{{ site.google_scholar }}" aria-label="Google Scholar"><i class="ai ai-google-scholar"></i></a>{% endif %}
+            {% if site.cv_link %}<a href="{{ site.cv_link }}" aria-label="CV"><i class="ai ai-cv"></i></a>{% endif %}
+            {% if site.github_link %}<a href="{{ site.github_link }}" aria-label="GitHub"><i class="fab fa-github"></i></a>{% endif %}
+            {% if site.linkedin %}<a href="{{ site.linkedin }}" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>{% endif %}
+            {% if site.twitter %}<a href="{{ site.twitter }}" aria-label="Twitter"><i class="fab fa-x-twitter"></i></a>{% endif %}
           </div>
+        </div>
 
-          <div class="hero__scroll-hint" aria-hidden="true">
-            <span class="hero__scroll-text">Scroll</span>
-            <span class="hero__scroll-line"></span>
-          </div>
+        <div class="hero__scroll" aria-hidden="true">
+          <span class="hero__scroll-label">scroll</span>
+          <span class="hero__scroll-line"></span>
         </div>
       </section>
 
-      <!-- ====== Content Scenes (from index.md) ====== -->
+      <!-- ══ Content chapters from index.md ══ -->
       {{ content }}
+
     </main>
 
     {% if site.enable_footnote %}
     <footer class="cinematic-footer">
-      <p><small>Powered by Jekyll and <a href="https://github.com/yaoyao-liu/minimal-light" target="_blank" rel="noopener">Minimal Light</a> theme.</small></p>
+      <p><small>Powered by Jekyll &amp; <a href="https://github.com/yaoyao-liu/minimal-light" target="_blank" rel="noopener" style="color:inherit;">Minimal Light</a></small></p>
     </footer>
     {% endif %}
 
     <script src="{{ "/assets/js/scale.fix.js" | relative_url }}"></script>
-    <!-- GSAP + ScrollTrigger + Lenis (CDN) -->
+    <!-- GSAP + ScrollTrigger + Lenis -->
     <script src="https://cdn.jsdelivr.net/npm/gsap@3/dist/gsap.min.js" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/gsap@3/dist/ScrollTrigger.min.js" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/lenis@1/dist/lenis.min.js" crossorigin="anonymous"></script>
