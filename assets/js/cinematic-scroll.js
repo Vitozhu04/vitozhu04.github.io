@@ -158,6 +158,12 @@
     }
   });
 
+  /* card stack: per-card top offset + z-index */
+  pubCards.forEach((card, i) => {
+    card.style.top = (80 + i * 14) + 'px';
+    card.style.zIndex = i + 1;
+  });
+
   /* ══════════════════════════════════════════════
      AWARDS — medal scale bounce on enter
   ══════════════════════════════════════════════ */
