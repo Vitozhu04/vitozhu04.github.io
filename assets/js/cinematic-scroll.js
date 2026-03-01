@@ -98,8 +98,8 @@
     if (i < chapters.length - 1) {
       var next = chapters[i + 1];
       gsap.to(ch, {
-        scale: 0.985, filter: 'brightness(0.78)', ease: 'none',
-        scrollTrigger: { trigger: next, start: 'top 40%', end: 'top top', scrub: 0.45 },
+        scale: 0.992, filter: 'brightness(0.85)', ease: 'none',
+        scrollTrigger: { trigger: next, start: 'top 25%', end: 'top top', scrub: 0.45 },
       });
     }
 
@@ -144,7 +144,7 @@
     scrollTrigger: {
       trigger: pubSection,
       start: 'top top',
-      end: function () { return '+=' + ((n - 1) * window.innerHeight); },
+      end: function () { return '+=' + ((n - 1) * window.innerHeight * 1.5); },
       pin: true,
       pinSpacing: true,
       scrub: true,
