@@ -1,286 +1,148 @@
 <!DOCTYPE html>
 <html lang="{{ site.lang | default: "en-US" }}">
-<head>
-  <title>{{ site.title }} | {{site.affiliation}}</title>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="{{ site.description }}">
-  {% if site.keywords %}<meta name="keywords" content="{{ site.keywords }}">{% endif %}
-  {% if site.canonical %}<link rel="canonical" href="{{ site.canonical }}"/>{% endif %}
-  <link rel="icon" media="(prefers-color-scheme:dark)" href="./assets/img/favicon-dark.png" type="image/png" />
-  <link rel="icon" media="(prefers-color-scheme:light)" href="./assets/img/favicon.png" type="image/png" />
-  <script src="./assets/js/favicon-switcher.js" type="application/javascript"></script>
-  <link rel=stylesheet href=https://cdnjs.cloudflare.com/ajax/libs/academicons/1.8.6/css/academicons.min.css integrity="sha256-uFVgMKfistnJAfoCUQigIl+JfUaP47GrRKjf6CTPVmw=" crossorigin=anonymous>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-  {% if site.font == "Sans Serif" %}
-  <link rel="stylesheet" href="./assets/css/font_sans_serif.css">
-  {% else %}
-  <link rel="stylesheet" href="./assets/css/font.css">
-  {% endif %}
-  {% if site.auto_dark_mode %}
-  <link rel="stylesheet" href="./assets/css/style.css">
-  <link rel="stylesheet" href="./assets/css/publications.css">
-  {% else %}
-  <link rel="stylesheet" href="./assets/css/style-no-dark-mode.css">
-  <link rel="stylesheet" href="./assets/css/publications-no-dark-mode.css">
-  {% endif %}
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lenis@1/dist/lenis.min.css" crossorigin="anonymous">
-  <link rel="stylesheet" href="./assets/css/cinematic.css">
-  <noscript><style>
-    .hero__name,.hero__eyebrow,.hero__tagline,.hero__links,.hero__scroll,
-    .chapter__label,.chapter__headline,.chapter__body,.chapter__divider,.chapter__counter
-    { opacity:1!important; transform:none!important; }
-    .pub-card { position:relative!important; transform:none!important; }
-    .pub-stack { height:auto!important; overflow:visible!important; }
-  </style></noscript>
-</head>
-<body>
+  <head>
+    <title>{{ site.title }} | {{site.affiliation}}</title>
 
-<!-- ── Sidebar Nav ── -->
-<nav class="sidebar-nav" aria-label="Page sections">
-  <div class="sidebar-nav__item"><span class="sidebar-nav__dot"></span><span class="sidebar-nav__label">About</span></div>
-  <div class="sidebar-nav__item"><span class="sidebar-nav__dot"></span><span class="sidebar-nav__label">Background</span></div>
-  <div class="sidebar-nav__item"><span class="sidebar-nav__dot"></span><span class="sidebar-nav__label">Career</span></div>
-  <div class="sidebar-nav__item"><span class="sidebar-nav__dot"></span><span class="sidebar-nav__label">Research</span></div>
-  <div class="sidebar-nav__item"><span class="sidebar-nav__dot"></span><span class="sidebar-nav__label">News</span></div>
-  <div class="sidebar-nav__item"><span class="sidebar-nav__dot"></span><span class="sidebar-nav__label">Papers</span></div>
-  <div class="sidebar-nav__item"><span class="sidebar-nav__dot"></span><span class="sidebar-nav__label">Awards</span></div>
-  <div class="sidebar-nav__item"><span class="sidebar-nav__dot"></span><span class="sidebar-nav__label">Contact</span></div>
-</nav>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="{{ site.description }}">
+    {% if site.keywords %}
+    <meta name="keywords" content="{{ site.keywords }}">
+    {% endif %}
+    {% if site.canonical %}
+    <link rel="canonical" href="{{ site.canonical }}"/>
+    {% endif %}
 
-<!-- ── Hero ── -->
-<section class="scene--hero" aria-label="Introduction">
-  <div class="hero__grid" aria-hidden="true"></div>
-  <div class="hero__orb"  aria-hidden="true"></div>
-  <div class="hero__inner">
-    <p class="hero__eyebrow">AI Research &amp; Engineering</p>
-    <div class="hero__name-clip" aria-hidden="true">
-      <span class="hero__name">{{ site.title }}</span>
-    </div>
-    <p class="hero__tagline">
-      {% if site.position %}{{ site.position }}{% endif %}
-      {% if site.affiliation %} &middot; <a href="{{ site.affiliation_link }}" rel="noopener" style="color:inherit;border-bottom:1px solid rgba(240,240,242,0.2);">{{ site.affiliation }}</a>{% endif %}
-    </p>
-    <div class="hero__links">
-      {% if site.google_scholar %}<a href="{{ site.google_scholar }}" aria-label="Google Scholar"><i class="ai ai-google-scholar"></i></a>{% endif %}
-      {% if site.cv_link %}<a href="{{ site.cv_link }}" aria-label="CV"><i class="ai ai-cv"></i></a>{% endif %}
-      {% if site.github_link %}<a href="{{ site.github_link }}" aria-label="GitHub"><i class="fab fa-github"></i></a>{% endif %}
-      {% if site.linkedin %}<a href="{{ site.linkedin }}" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>{% endif %}
-    </div>
-  </div>
-  <div class="hero__scroll" aria-hidden="true">
-    <span class="hero__scroll-label">scroll</span>
-    <span class="hero__scroll-line"></span>
-  </div>
-</section>
+    <link rel="icon" media="(prefers-color-scheme:dark)" href="{{ site.favicon_dark }}" type="image/png" />
+    <link rel="icon" media="(prefers-color-scheme:light)" href="{{ site.favicon }}" type="image/png" />
+    <script src="./assets/js/favicon-switcher.js" type="application/javascript"></script>
 
-<!-- ── Chapters ── -->
+    <link rel=stylesheet href=https://cdnjs.cloudflare.com/ajax/libs/academicons/1.8.6/css/academicons.min.css integrity="sha256-uFVgMKfistnJAfoCUQigIl+JfUaP47GrRKjf6CTPVmw=" crossorigin=anonymous>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    
+    {% if site.font == "Sans Serif" %}
+    <link rel="stylesheet" href="./assets/css/font_sans_serif.css">
+    {% else %}
+    <link rel="stylesheet" href="./assets/css/font.css">
+    {% endif %}
+    {% if site.auto_dark_mode %}
+    <link rel="stylesheet" href="./assets/css/style.css">
+    <link rel="stylesheet" href="./assets/css/publications.css">
+    {% else %}
+    <link rel="stylesheet" href="./assets/css/style-no-dark-mode.css">
+    <link rel="stylesheet" href="./assets/css/publications-no-dark-mode.css">
+    {% endif %}
 
-  <!-- ══ 01 About ══ -->
-  <section class="chapter" data-section="about" aria-label="About">
-    <span class="chapter__counter">01 / 07</span>
-    <p class="chapter__label">About</p>
-    <div class="chapter__headline-clip">
-      <span class="chapter__headline">Wenbo<br>(Vito) Zhu</span>
-    </div>
-    <div class="chapter__divider"></div>
-    <div class="chapter__body">
-      <p>Hello! I'm <strong>Wenbo (Vito) Zhu</strong>, currently the <strong>Founding AI Lead &amp; Head of AI Research</strong> at <a href="https://www.opusclip.com">OpusClip</a>.
-      I joined when the team had around 5 engineers, failed and pivoted, and now lead a <strong>30+ cross-functional AI team</strong> delivering next-generation multimodal and generative video products.
-      I initiated, led, and shipped several flagship systems, including:</p>
-      <ul>
-        <li><a href="https://www.opus.pro/">OpusClip</a> &ndash; No.1 AI Clipping Tool in the market</li>
-        <li><a href="https://www.opus.pro/clipanything">ClipAnything</a> &ndash; First multi-modal clipping tool with prompting capabilities</li>
-        <li><a href="https://www.opus.pro/agent">Agent Opus</a> &ndash; First video agent tailored for social media</li>
-      </ul>
-      <p>Before OpusClip, I was a <strong>Senior ML Engineer at ByteDance/TikTok</strong>, where I served as a founding engineer of <a href="https://www.gauthmath.com/">Gauthmath</a> &mdash; building the world's first AI-based geometry solver with 100M+ downloads.</p>
-    </div>
-  </section>
+  </head>
+  <body>
+    <div class="wrapper">
+      <header>
+        
+        {% if site.avatar %}
+        <a class="image avatar"><img src="{{ site.avatar }}" alt="avatar" /></a>
+        {% endif %}
 
-  <!-- ══ 02 Background ══ -->
-  <section class="chapter chapter--alt" data-section="background" aria-label="Background">
-    <span class="chapter__counter">02 / 07</span>
-    <p class="chapter__label">Background</p>
-    <div class="chapter__headline-clip">
-      <span class="chapter__headline">Background</span>
-    </div>
-    <div class="chapter__divider"></div>
-    <div class="chapter__body">
-      <p>Earlier, as a <strong>Research Scientist at Cloudwalk Technology</strong>, I developed a <strong>billion-scale face clustering engine</strong> deployed across 10+ cities (patented).</p>
-      <ul>
-        <li><strong>Recognition:</strong> Both <strong>OpusClip</strong> and <strong>Gauthmath</strong> were recognized by <em>Andreessen Horowitz (a16z)</em> as <strong>Top 50 GenAI Apps</strong>.</li>
-        <li><strong>Leadership:</strong> I founded the <a href="https://opusair.github.io/">Opus AI Research Team</a>, the research team at OpusClip.</li>
-        <li><strong>Collaboration:</strong> I work with <a href="https://yxpalmweb.github.io/" target="_blank" rel="noopener" style="color:rgb(62,183,240);">Prof. Xu Yang</a> on multimodal video intelligence and robust vision-language alignment.</li>
-        <li><strong>Education:</strong> I hold a <strong>Master (OR)</strong> from <a href="https://engineering.berkeley.edu/">UC Berkeley</a> and an <strong>Undergrad (IE &amp; Math)</strong> from <a href="https://ev.buaa.edu.cn/">Beihang University</a>.</li>
-      </ul>
-    </div>
-  </section>
+        <h1>{{ site.title }}</h1>
 
-  <!-- ══ 03 Career ══ -->
-  <section class="chapter" data-section="career" aria-label="Career">
-    <span class="chapter__counter">03 / 07</span>
-    <p class="chapter__label">Career</p>
-    <div class="chapter__headline-clip">
-      <span class="chapter__headline">Timeline</span>
-    </div>
-    <div class="chapter__divider"></div>
-    <div class="chapter__body">
-      <ul class="timeline">
-        <li class="timeline-item">
-          <span class="timeline-item__year">2022 &ndash; Present</span>
-          <div class="timeline-item__content"><strong>Founding AI Lead &amp; Head of AI Research</strong><p>OpusClip</p></div>
-        </li>
-        <li class="timeline-item">
-          <span class="timeline-item__year">2020 &ndash; 2022</span>
-          <div class="timeline-item__content"><strong>Senior ML Engineer</strong><p>ByteDance / TikTok</p></div>
-        </li>
-        <li class="timeline-item">
-          <span class="timeline-item__year">2019 &ndash; 2020</span>
-          <div class="timeline-item__content"><strong>Research Scientist</strong><p>Cloudwalk Technology</p></div>
-        </li>
-      </ul>
-    </div>
-  </section>
+        {% if site.position %}
+        <position style="font-size:1.10rem;">{{ site.position }}</position>
+        <br>
+        {% endif %}
+        {% if site.affiliation %}
+        <a href="{{ site.affiliation_link }}" rel="noopener"><autocolor>{{ site.affiliation }}</autocolor></a>
+        <br>
+        {% endif %}
+        {% if site.email %}
+        <email>{{ site.email }}</email>
+        {% endif %}
 
-  <!-- ══ 04 Research ══ -->
-  <section class="chapter chapter--alt" data-section="research" aria-label="Research">
-    <span class="chapter__counter">04 / 07</span>
-    <p class="chapter__label">Research</p>
-    <div class="chapter__headline-clip">
-      <span class="chapter__headline">Interests</span>
+        <br>
+        <br>
+        <div class="social-icons">
+        {% if site.google_scholar %}
+        <a style="margin: 0 5px 0 0" href="{{ site.google_scholar }}">
+          <i class="ai ai-google-scholar" style="font-size:1.2rem"></i>
+        </a>  
+        {% endif %}
+
+        {% if site.cv_link %}
+        <a style="margin: 0 5px 0 0" href="{{ site.cv_link }}">
+          <i class="ai ai-cv" style="font-size:1.3rem;"></i>
+        </a>
+        {% endif %}
+
+        {% if site.github_link %}
+        <a style="margin: 0 5px 0 0" href="{{ site.github_link }}">
+          <i class="fab fa-github"></i>
+        </a>
+        {% endif %}
+
+        {% if site.linkedin %}
+        <a style="margin: 0 5px 0 0" href="{{ site.linkedin }}">
+          <i class="fab fa-linkedin"></i>
+        </a>
+        {% endif %}
+
+        {% if site.twitter %}
+        <a style="margin: 0 0 0 0" href="{{ site.twitter }}">
+          <i class="fab fa-x-twitter"></i>
+        </a>
+        {% endif %}
+        </div>
+        <br>
+
+      </header>
+      <section>
+
+      {{ content }}
+
+      <br>
+
+      {% if site.enable_footnote %}
+      <p><small>Powered by Jekyll and <a href="https://github.com/yaoyao-liu/minimal-light" target="_blank" rel="noopener">Minimal Light</a> theme.</small></p>
+      {% endif %}
+
+      </section>
+      <footer>
+        
+      </footer>
     </div>
-    <div class="chapter__divider"></div>
-    <div class="chapter__body">
-      <div class="research-tiles">
-        <div class="research-tile"><strong>Multimodal Video Intelligence</strong><p>Understanding, reasoning, and editing for video content</p></div>
-        <div class="research-tile"><strong>Agentic Systems</strong><p>LLM-based planning, tool use, and evaluation frameworks</p></div>
-        <div class="research-tile"><strong>Generative Media</strong><p>Automatic video repurposing and multimodal content creation</p></div>
-      </div>
-    </div>
-  </section>
+    <!-- ✨ Cinematic View toggle -->
+    <style>
+    .view-toggle--cinematic {
+      position: fixed; bottom: 2rem; right: 2rem; z-index: 9999;
+      display: inline-flex; align-items: center; gap: 0.4rem;
+      padding: 0.55em 1.3em;
+      background: #06060a; color: #f0f0f2;
+      border: 1px solid rgba(62,183,240,0.5);
+      border-radius: 999px;
+      font-size: 0.82rem; font-weight: 600; letter-spacing: 0.05em;
+      text-decoration: none;
+      box-shadow: 0 4px 24px rgba(62,183,240,0.15);
+      transition: background 0.2s, box-shadow 0.2s, border-color 0.2s;
+    }
+    .view-toggle--cinematic:hover {
+      background: #0d0e14;
+      border-color: #3eb7f0;
+      box-shadow: 0 4px 32px rgba(62,183,240,0.3);
+      color: #3eb7f0;
+    }
+    </style>
+    <a href="./cinematic" class="view-toggle view-toggle--cinematic" aria-label="Switch to cinematic view">
+      ✨ Cinematic
+    </a>
 
-  <!-- ══ 05 News ══ -->
-  <section class="chapter" data-section="news" aria-label="News">
-    <span class="chapter__counter">05 / 07</span>
-    <p class="chapter__label">News</p>
-    <div class="chapter__headline-clip">
-      <span class="chapter__headline">Updates</span>
-    </div>
-    <div class="chapter__divider"></div>
-    <div class="chapter__body">
-      <ul class="news-list">
-        <li class="news-item"><span class="news-date">Jan 2026</span><span class="news-text">One paper accepted to <strong>ICLR 2026</strong>.</span></li>
-        <li class="news-item"><span class="news-date">Sep 2025</span><span class="news-text">Two papers accepted to <strong>NeurIPS 2025</strong>.</span></li>
-        <li class="news-item"><span class="news-date">May 2025</span><span class="news-text">One paper accepted to <strong>ACL 2025</strong>.</span></li>
-        <li class="news-item"><span class="news-date">Feb 2025</span><span class="news-text">Two papers accepted to <strong>CVPR 2025</strong>, including <strong>One Highlight</strong>.</span></li>
-        <li class="news-item"><span class="news-date">Jan 2025</span><span class="news-text">One journal paper accepted to <strong>BIT</strong>.</span></li>
-        <li class="news-item"><span class="news-date">Dec 2024</span><span class="news-text">Two papers accepted to <strong>AAAI 2025</strong>.</span></li>
-        <li class="news-item"><span class="news-date">Nov 2024</span><span class="news-text">Co-authored with <strong>Google AI</strong>: <a href="https://ai.google.dev/showcase/opusclip">"OpusClip achieves 30% cost savings with Gemini Flash"</a></span></li>
-        <li class="news-item"><span class="news-date">Feb 2024</span><span class="news-text">One journal paper accepted to <strong>IJHCI</strong>.</span></li>
-      </ul>
-    </div>
-  </section>
-
-
-<!-- ══ Publications — GSAP flat card deck ══ -->
-<section class="scene--publications" data-section="publications" aria-label="Publications">
-  <div class="pub-section__header">
-    <p class="pub-section__label">Publications</p>
-    <div class="chapter__headline-clip">
-      <span class="chapter__headline pub-section__headline">Papers</span>
-    </div>
-    <div class="chapter__divider"></div>
-  </div>
-  <div class="pub-stack">
-    {% for pub in site.data.publications.main %}
-    <div class="pub-card">
-      <div class="pub-card__badges">
-        {% if pub.conference_short %}<span class="pub-card__badge">{{ pub.conference_short }}</span>{% endif %}
-        {% if pub.notes %}<span class="pub-card__highlight">{{ pub.notes }}</span>{% endif %}
-      </div>
-      <h2 class="pub-card__title">{{ pub.title }}</h2>
-      <div class="pub-card__meta">
-        <p class="pub-card__authors">{{ pub.authors }}</p>
-        <p class="pub-card__venue">{{ pub.conference }}</p>
-        {% if pub.others %}<p class="pub-card__others">{{ pub.others }}</p>{% endif %}
-      </div>
-      <div class="pub-card__links">
-        {% if pub.pdf %}<a href="{{ pub.pdf }}" class="pub-card__btn" target="_blank" rel="noopener">PDF</a>{% endif %}
-        {% if pub.code %}<a href="{{ pub.code }}" class="pub-card__btn" target="_blank" rel="noopener">Code</a>{% endif %}
-      </div>
-    </div>
-    {% endfor %}
-  </div>
-</section>
-
-<!-- ── More chapters ── -->
-
-  <!-- ══ 06 Awards ══ -->
-  <section class="chapter chapter--alt" data-section="awards" aria-label="Awards">
-    <span class="chapter__counter">06 / 07</span>
-    <p class="chapter__label">Awards</p>
-    <div class="chapter__headline-clip">
-      <span class="chapter__headline">Recognition</span>
-    </div>
-    <div class="chapter__divider"></div>
-    <div class="chapter__body">
-      <ul class="awards-list">
-        <li class="award-item"><span class="award-item__medal">🥈</span><div class="award-item__text"><strong>[Oct 2025]</strong> 2nd Place &ndash; <strong>Perception Test Challenge 2025</strong> (Task 5: Hour-Long Video QA)</div></li>
-        <li class="award-item"><span class="award-item__medal">🥉</span><div class="award-item__text"><strong>[Aug 2025]</strong> 3rd Place &ndash; <strong>CVPR 2025 SoccerNet Challenge</strong> (Multi-View Foul Recognition)</div></li>
-        <li class="award-item"><span class="award-item__medal">🥇</span><div class="award-item__text"><strong>[Jun 2025]</strong> 1st Place &ndash; <strong>CVPR 2025 VidLLMs Challenge</strong> (Multilingual Video Reasoning)</div></li>
-        <li class="award-item"><span class="award-item__medal">🥈</span><div class="award-item__text"><strong>[Jun 2025]</strong> 2nd Place &ndash; <strong>CVPR 2025 VidLLMs Challenge</strong> (Complex Video Reasoning &amp; Robustness)</div></li>
-        <li class="award-item"><span class="award-item__medal">🏆</span><div class="award-item__text"><strong>[Oct 2024]</strong> Winner &ndash; <strong>ECCV 2024 Perception Challenge</strong> (Hour-Long Video QA Track)</div></li>
-        <li class="award-item"><span class="award-item__medal">🏆</span><div class="award-item__text"><strong>[Jun 2024]</strong> Winner &ndash; <strong>CVPR 2024 LOVEU Workshop</strong> (Long-Term Video QA Track)</div></li>
-        <li class="award-item"><span class="award-item__medal">🥈</span><div class="award-item__text"><strong>[2020]</strong> Kaggle ASHRAE Great Energy Predictor III &ndash; Silver Medal (Top 2%)</div></li>
-      </ul>
-    </div>
-  </section>
-
-
-<!-- ══ 07 Services + Contact ══ -->
-<section class="scene--services-footer" data-section="services" aria-label="Services and Contact">
-  <span class="chapter__counter" style="position:absolute;top:3rem;right:var(--gutter);">07 / 07</span>
-  <h2>Services</h2>
-  <h4>Conference Reviewers</h4>
-  <ul>
-    <li><a href="https://cvpr.thecvf.com/Conferences/2026">IEEE/CVF CVPR 2026</a></li>
-    <li><a href="https://eccv.ecva.net/">European Conference on Computer Vision (ECCV) 2026</a></li>
-    <li><a href="https://aaai.org/conference/aaai/aaai-25/">AAAI Conference on Artificial Intelligence 2025</a></li>
-  </ul>
-  <div class="contact-block">
-    <h3>Get in Touch</h3>
-    <a href="mailto:{{ site.email }}" class="contact-block__email">{{ site.email }}</a>
-    <div class="contact-block__social">
-      {% if site.google_scholar %}<a href="{{ site.google_scholar }}" aria-label="Google Scholar" target="_blank" rel="noopener"><i class="ai ai-google-scholar"></i></a>{% endif %}
-      {% if site.cv_link %}<a href="{{ site.cv_link }}" aria-label="CV" target="_blank" rel="noopener"><i class="ai ai-cv"></i></a>{% endif %}
-      {% if site.github_link %}<a href="{{ site.github_link }}" aria-label="GitHub" target="_blank" rel="noopener"><i class="fab fa-github"></i></a>{% endif %}
-      {% if site.linkedin %}<a href="{{ site.linkedin }}" aria-label="LinkedIn" target="_blank" rel="noopener"><i class="fab fa-linkedin"></i></a>{% endif %}
-    </div>
-  </div>
-</section>
-
-{% if site.enable_footnote %}
-<footer class="cinematic-footer">
-  <p><small>Powered by Jekyll &amp; <a href="https://github.com/yaoyao-liu/minimal-light" target="_blank" rel="noopener" style="color:inherit;">Minimal Light</a></small></p>
-</footer>
-{% endif %}
-
-<script src="{{ "/assets/js/scale.fix.js" | relative_url }}"></script>
-<script src="https://cdn.jsdelivr.net/npm/gsap@3/dist/gsap.min.js" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/gsap@3/dist/ScrollTrigger.min.js" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/lenis@1/dist/lenis.min.js" crossorigin="anonymous"></script>
-<script src="./assets/js/cinematic-scroll.js"></script>
-
-{% if site.google_analytics %}
-<script>
-  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-  ga('create', '{{ site.google_analytics }}', 'auto');
-  ga('send', 'pageview');
-</script>
-{% endif %}
-</body>
+    <script src="{{ "/assets/js/scale.fix.js" | relative_url }}"></script>
+    {% if site.google_analytics %}
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+      ga('create', '{{ site.google_analytics }}', 'auto');
+      ga('send', 'pageview');
+    </script>
+    {% endif %}
+  </body>
 </html>
