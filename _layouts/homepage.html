@@ -108,6 +108,31 @@
         
       </footer>
     </div>
+    <!-- ✨ Cinematic View toggle -->
+    <style>
+    .view-toggle--cinematic {
+      position: fixed; bottom: 2rem; right: 2rem; z-index: 9999;
+      display: inline-flex; align-items: center; gap: 0.4rem;
+      padding: 0.55em 1.3em;
+      background: #06060a; color: #f0f0f2;
+      border: 1px solid rgba(62,183,240,0.5);
+      border-radius: 999px;
+      font-size: 0.82rem; font-weight: 600; letter-spacing: 0.05em;
+      text-decoration: none;
+      box-shadow: 0 4px 24px rgba(62,183,240,0.15);
+      transition: background 0.2s, box-shadow 0.2s, border-color 0.2s;
+    }
+    .view-toggle--cinematic:hover {
+      background: #0d0e14;
+      border-color: #3eb7f0;
+      box-shadow: 0 4px 32px rgba(62,183,240,0.3);
+      color: #3eb7f0;
+    }
+    </style>
+    <a href="./cinematic" class="view-toggle view-toggle--cinematic" aria-label="Switch to cinematic view">
+      ✨ Cinematic
+    </a>
+
     <script src="{{ "/assets/js/scale.fix.js" | relative_url }}"></script>
     {% if site.google_analytics %}
     <script>
