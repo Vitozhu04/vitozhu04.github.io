@@ -137,9 +137,6 @@
   var n = pubCards.length;
   if (n < 1) return;
 
-  /* Slide counter badge — shows "01 / 07" updating per step */
-  var counter = pubSection.querySelector('.pub-section__label');
-
   /* Scrub the whole strip leftward: each vh of scroll = 1 card width */
   gsap.to(pubStack, {
     x: function () { return -(n - 1) * window.innerWidth; },
@@ -150,15 +147,8 @@
       end: function () { return '+=' + ((n - 1) * window.innerHeight); },
       pin: true,
       pinSpacing: true,
-      scrub: 0.6,
+      scrub: true,
       anticipatePin: 1,
-      onUpdate: function (self) {
-        /* update slide label */
-        if (counter) {
-          var idx = Math.round(self.progress * (n - 1));
-          counter.textContent = 'Paper ' + (idx + 1) + ' / ' + n;
-        }
-      },
     },
   });
 

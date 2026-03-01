@@ -12,12 +12,12 @@
 html, body,
 section, header, footer, .wrapper,
 div.wrapper {
-  float:       none !important;
-  position:    static !important;
-  width:       auto !important;
-  max-width:   none !important;
-  padding-top: 0 !important;
-  padding-bottom: 0 !important;
+  float:          none !important;
+  position:       static !important;
+  width:          auto !important;
+  max-width:      none !important;
+  padding:        0 !important;   /* kills any theme body/section padding */
+  margin:         0 !important;
   left: auto !important; right: auto !important;
   bottom: auto !important; top: auto !important;
 }
@@ -45,7 +45,7 @@ div.wrapper {
   --accent-red: #ff6b4a;
   --rule:      rgba(255,255,255,0.08);
   --bg-3:      #12131a;
-  --gutter:    10vw;
+  --gutter:    15vw;
 }
 
 html { scroll-behavior: auto; }
@@ -197,20 +197,20 @@ main, #main, .wrapper {
 /* No .chapters-wrapper needed — body overflow-x clips horizontal fly-ins */
 
 /* ── Chapter cards ── */
+/* min-height: 250vh → sticky lasts for 150vh of scroll (buffer so user isn't rushed) */
 .chapter {
   position: sticky;
   top: 0;
-  min-height: 100vh;
+  min-height: 250vh;      /* extra 150vh = scroll buffer; content stays at top */
   width: 100%;
-  padding: 10vh var(--gutter);
+  padding: 18vh var(--gutter) 0;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-start;   /* pin content at top of sticky card */
   align-items: flex-start;
   border-top: 1px solid var(--rule);
   background: var(--bg);
   will-change: transform;
-  /* NO overflow:hidden here — let sticky work naturally */
 }
 .chapter--alt { background: var(--bg-2); }
 
@@ -473,7 +473,7 @@ main, #main, .wrapper {
   :root { --gutter: 6vw; }
   .sidebar-nav { display: none; }
   /* No chapters-wrapper */
-  .chapter { position: relative !important; top: auto !important; transform: none !important; filter: none !important; }
+  .chapter { position: relative !important; top: auto !important; min-height: 100vh !important; padding: 12vh var(--gutter) !important; transform: none !important; filter: none !important; }
   .scene--publications { overflow: visible !important; }
   .pub-stack { flex-direction: column !important; width: 100% !important; height: auto !important; transform: none !important; }
   .pub-card { width: 100% !important; min-height: 80vh; border-left: none !important; border-top: 1px solid var(--rule); }
