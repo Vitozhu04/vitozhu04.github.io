@@ -8,6 +8,12 @@ main:
     code: https://github.com/yongliang-wu/DFT
     others: <strong><i style="color:#e74d3c">Integrated by ms-swift, trl, llama-factory.</i></strong>
 
+  - title: "Adapting Point Cloud Analysis via Multimodal Bayesian Distribution Learning"
+    authors: "Xingyu Zhu, Liang Yi, Shuo Wang, <strong>Wenbo Zhu</strong>, Yongliang Wu, Beier Zhu, Hanwang Zhang"
+    conference_short: CVPR
+    conference: "IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR), 2026."
+    image: ./assets/img/point-cloud.jpg
+
   - title: "KRIS-Bench: Benchmarking Next-Level Intelligent Image Editing Models"
     authors: "Yongliang Wu, Zonghui Li, Xinting Hu, Xinyu Ye, Xianfang Zeng, Gang Yu, <strong>Wenbo Zhu</strong>, Bernt Schiele, Ming-Hsuan Yang, Xu Yang"
     conference_short: NeurIPS
@@ -15,6 +21,13 @@ main:
     pdf: https://arxiv.org/abs/2505.16707
     image: ./assets/img/kris-bench.png
     code: https://yongliang-wu.github.io/kris_bench_project_page/
+
+  - title: "DuSA: Fast and Accurate Dual-Stage Sparse Attention Mechanism Accelerating Both Training and Inference"
+    authors: "Chong Wu, Jiawang Cao, Renjie Xu, Zhuoheng Ran, Maolin Che, <strong>Wenbo Zhu</strong>, Hong Yan"
+    conference_short: NeurIPS
+    conference: "Advances in Neural Information Processing Systems (NeurIPS), 2025."
+    pdf: https://neurips.cc/virtual/2025/loc/san-diego/poster/115603
+    image: ./assets/img/dusa.webp
 
   - title: "Number it: Temporal Grounding Videos like Flipping Manga"
     authors: "Yongliang Wu*, Xinting Hu*, Yuyang Sun, Yizhou Zhou, <strong>Wenbo Zhu</strong>, Fengyun Rao, Bernt Schiele, Xu Yang"
