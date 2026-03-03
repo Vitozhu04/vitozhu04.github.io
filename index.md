@@ -33,6 +33,7 @@ Earlier, as a **Research Scientist at Cloudwalk Technology**, I developed a **bi
 
 ## News
 
+- **[Feb. 2026]** 🎉 One paper is accepted by **CVPR 2026**.
 - **[Jan. 2026]** One paper is accepted by **ICLR 2026**.
 - **[Sept 2025]** Two papers accepted by **NeurIPS 2025**.
 - **[May 2025]** One paper accepted to **ACL 2025**.  
