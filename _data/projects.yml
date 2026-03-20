@@ -42,39 +42,35 @@ research:
 personal:
   - title: Fatery
     slug: fatery
-    description: "AI-powered Chinese metaphysics dossier — generates personalized BaZi (Four Pillars of Destiny) analysis using LLMs."
-    tech: [Next.js, LLM, Chinese Metaphysics]
+    url: https://fatery.me
+    description: "AI-powered Chinese metaphysics dossier"
     github: https://github.com/RealPercival/fatery
-    demo: https://fatery.me
 
   - title: FateryBench
     slug: fatery-bench
-    description: "The first benchmark for evaluating LLMs on Chinese metaphysics (BaZi) prediction. 196 competition questions from HKJFMA 2022-2025."
-    tech: [Python, Benchmark, LLM Evaluation]
+    url: /fatery-bench/
+    description: "BaZi prediction benchmark for LLMs"
     github: https://github.com/Vitozhu04/fatery-bench
-    demo: /fatery-bench/
 
   - title: TapNote
     slug: tapnote
-    description: "Audio transcription + AI note-taking — record voice memos and get structured, actionable notes powered by AI."
-    tech: [Python, Swift, Whisper, LLM]
+    description: "iOS/Watch audio transcription + AI notes"
+    note: "Under Review"
     github: https://github.com/Vitozhu04/tapnote
 
   - title: Pets Banana
     slug: pets-banana
-    description: "AI pet portrait generator — upload a photo of your pet and get artistic portraits in various styles."
-    tech: [Next.js, Generative AI]
+    url: https://www.petsbanana.com
+    description: "AI pet portrait generator"
     github: https://github.com/RealPercival/pets-banana
-    demo: https://petsbanana.com
 
-  - title: Gen Podcast
+  - title: PodFor.me
     slug: gen-podcast
-    description: "Auto-generate podcasts from multi-source information — aggregates content and produces natural-sounding podcast episodes."
-    tech: [FastAPI, React, TTS]
+    url: https://podfor.me/
+    description: "Auto-generate podcasts from multi-source info"
     github: https://github.com/Levi-lii/gen-podcast
 
   - title: Auto Transcribe
     slug: auto-transcribe
-    description: "Voice memo to structured Markdown CLI tool — automatically transcribes audio and formats it into clean notes."
-    tech: [Python, Whisper, CLI]
+    description: "Voice memo → structured Markdown CLI"
     github: https://github.com/Vitozhu04/auto-transcribe
