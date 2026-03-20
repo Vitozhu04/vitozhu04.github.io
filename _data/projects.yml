@@ -1,40 +1,33 @@
 research:
   - title: DFT
     slug: dft
-    description: "Generalization of Supervised Fine-Tuning via Reward Rectification — a reinforcement learning perspective on SFT generalization."
-    tech: [PyTorch, Reinforcement Learning]
+    description: "Generalization of SFT via Reward Rectification"
     github: https://github.com/yongliang-wu/DFT
     conference: ICLR 2026
     stars: 546
-    others: "Integrated by ms-swift, trl, llama-factory."
 
   - title: NumPro
     slug: numpro
-    description: "Temporal Grounding Videos like Flipping Manga — number-prompted temporal grounding for video understanding."
-    tech: [PyTorch, Video Understanding]
+    description: "Temporal Grounding Videos like Flipping Manga"
     github: https://github.com/yongliang-wu/NumPro
     conference: CVPR 2025
     stars: 146
-    others: "Adopted by Andrew Zisserman's work."
 
   - title: MM-VID
     slug: mm-vid
-    description: "Video Understanding with GPT-4V(ision) — leveraging multimodal LLMs for comprehensive video analysis."
-    tech: [GPT-4V, Video Understanding]
+    description: "Video Understanding with GPT-4V(ision)"
     github: https://github.com/yongliang-wu/MM-VID
     stars: 39
 
   - title: TrackGPT
     slug: trackgpt
-    description: "Track What You Need in Videos via Text Prompts — text-driven object tracking in video."
-    tech: [PyTorch, Video Tracking]
+    description: "Text-Prompted Video Object Tracking"
     github: https://github.com/eshoyuan/TrackGPT
     stars: 25
 
   - title: Repurpose
     slug: repurpose
-    description: "Video Repurposing from User Generated Content — automatically transforming UGC into polished short-form videos."
-    tech: [PyTorch, Video Editing]
+    description: "Video Repurposing from User Generated Content"
     github: https://github.com/yongliang-wu/Repurpose
     conference: AAAI 2025
     stars: 27

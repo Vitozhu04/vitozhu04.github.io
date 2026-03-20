@@ -92,6 +92,16 @@
         </div>
         <br>
 
+        <div class="sidebar-projects">
+        <h4 class="sidebar-projects__title">Side Projects</h4>
+        {% for project in site.data.projects.personal %}
+        <div class="sidebar-projects__item">
+          {% if project.url %}<a href="{{ project.url }}" target="_blank" rel="noopener">{{ project.title }}</a>{% else %}<span>{{ project.title }}</span>{% endif %}
+          {% if project.note %}<em class="sidebar-projects__note">({{ project.note }})</em>{% endif %}
+        </div>
+        {% endfor %}
+        </div>
+
       </header>
       <section>
 
@@ -110,6 +120,42 @@
     </div>
     <!-- ✨ Cinematic View toggle -->
     <style>
+    .sidebar-projects {
+      margin-top: 0.5rem;
+      text-align: center;
+    }
+    .sidebar-projects__title {
+      font-size: 0.82rem;
+      color: #666;
+      margin-bottom: 0.6rem;
+      font-weight: 600;
+      letter-spacing: 0.02em;
+    }
+    .sidebar-projects__item {
+      margin-bottom: 0.35rem;
+      font-size: 0.85rem;
+    }
+    .sidebar-projects__item a {
+      color: #0366d6;
+      text-decoration: none;
+      font-weight: 500;
+    }
+    .sidebar-projects__item a:hover {
+      text-decoration: underline;
+    }
+    .sidebar-projects__item span {
+      color: #555;
+      font-weight: 500;
+    }
+    .sidebar-projects__note {
+      font-size: 0.72rem;
+      color: #999;
+    }
+    @media (prefers-color-scheme: dark) {
+      .sidebar-projects__title { color: #999; }
+      .sidebar-projects__item a { color: #58a6ff; }
+      .sidebar-projects__item span { color: #aaa; }
+    }
     .view-toggle--cinematic {
       position: fixed; bottom: 2rem; right: 2rem; z-index: 9999;
       display: inline-flex; align-items: center; gap: 0.4rem;

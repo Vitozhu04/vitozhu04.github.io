@@ -12,22 +12,10 @@
   <td class="proj-links">
     {% if project.stars %}<span class="proj-stars">&#9733; {{ project.stars }}</span>{% endif %}
     <a href="{{ project.github }}" target="_blank" rel="noopener" class="btn btn-sm z-depth-0" style="font-size:12px;">Code</a>
-    {% if project.demo %}<a href="{{ project.demo }}" target="_blank" rel="noopener" class="btn btn-sm z-depth-0" style="font-size:12px;">Demo</a>{% endif %}
   </td>
 </tr>
 {% endfor %}
 </table>
-
-<h4 style="margin:10px 10px 5px;">Side Projects</h4>
-<ul class="side-projects-list">
-{% for project in site.data.projects.personal %}
-<li>
-  {% if project.url %}<a href="{{ project.url }}" target="_blank" rel="noopener"><strong>{{ project.title }}</strong></a>{% else %}<strong>{{ project.title }}</strong>{% endif %}
-  — {{ project.description }}
-  {% if project.note %}<em style="color:#e74d3c;">({{ project.note }})</em>{% endif %}
-</li>
-{% endfor %}
-</ul>
 
 <style>
 .projects-table {
@@ -43,7 +31,7 @@
 }
 .projects-table td {
   padding: 8px 6px;
-  vertical-align: top;
+  vertical-align: middle;
   font-size: 0.88rem;
 }
 .proj-name {
@@ -74,36 +62,16 @@
   text-align: right;
 }
 .proj-stars {
-  font-size: 0.78rem;
-  color: #e3b341;
-  font-weight: 500;
-  margin-right: 4px;
-}
-
-.side-projects-list {
-  margin: 4px 0 16px;
-  padding-left: 1.4rem;
-}
-.side-projects-list li {
-  margin-bottom: 4px;
   font-size: 0.88rem;
-  color: #555;
-  line-height: 1.55;
-}
-.side-projects-list a {
-  color: #0366d6;
-  text-decoration: none;
-}
-.side-projects-list a:hover {
-  text-decoration: underline;
+  color: #e3b341;
+  font-weight: 600;
+  margin-right: 8px;
 }
 
 @media (prefers-color-scheme: dark) {
   .projects-table tr { border-color: #333; }
   .proj-name a { color: #58a6ff; }
   .proj-desc { color: #aaa; }
-  .side-projects-list li { color: #aaa; }
-  .side-projects-list a { color: #58a6ff; }
 }
 @media (max-width: 768px) {
   .proj-desc { display: none; }
