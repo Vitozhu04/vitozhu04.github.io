@@ -36,34 +36,40 @@ personal:
   - title: Fatery
     slug: fatery
     url: https://fatery.me
-    description: "AI-powered Chinese metaphysics dossier"
+    tag: Web
+    tag_color: "#1a7f37"
     github: https://github.com/RealPercival/fatery
 
   - title: FateryBench
     slug: fatery-bench
     url: /fatery-bench/
-    description: "BaZi prediction benchmark for LLMs"
+    tag: Benchmark
+    tag_color: "#9a6700"
     github: https://github.com/Vitozhu04/fatery-bench
 
   - title: TapNote
     slug: tapnote
-    description: "iOS/Watch audio transcription + AI notes"
+    tag: iOS/Watch
+    tag_color: "#0550ae"
     note: "Under Review"
     github: https://github.com/Vitozhu04/tapnote
 
   - title: Pets Banana
     slug: pets-banana
     url: https://www.petsbanana.com
-    description: "AI pet portrait generator"
+    tag: Web
+    tag_color: "#1a7f37"
     github: https://github.com/RealPercival/pets-banana
 
   - title: PodFor.me
     slug: gen-podcast
     url: https://podfor.me/
-    description: "Auto-generate podcasts from multi-source info"
+    tag: Web
+    tag_color: "#1a7f37"
     github: https://github.com/Levi-lii/gen-podcast
 
   - title: Auto Transcribe
     slug: auto-transcribe
-    description: "Voice memo → structured Markdown CLI"
+    tag: Skills
+    tag_color: "#8250df"
     github: https://github.com/Vitozhu04/auto-transcribe

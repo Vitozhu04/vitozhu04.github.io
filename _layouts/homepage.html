@@ -93,11 +93,21 @@
         <br>
 
         <div class="sidebar-projects">
-        <h4 class="sidebar-projects__title">Side Projects</h4>
+        <h4 class="sidebar-projects__title">Research Code</h4>
+        {% for project in site.data.projects.research %}
+        <div class="sidebar-projects__item">
+          <span class="sp-stars">&#9733; {{ project.stars }}</span>
+          <a href="{{ project.github }}" target="_blank" rel="noopener">{{ project.title }}</a>
+          {% if project.conference %}<abbr class="sp-conf">{{ project.conference }}</abbr>{% endif %}
+        </div>
+        {% endfor %}
+
+        <h4 class="sidebar-projects__title" style="margin-top:1rem;">Side Projects</h4>
         {% for project in site.data.projects.personal %}
         <div class="sidebar-projects__item">
-          {% if project.url %}<a href="{{ project.url }}" target="_blank" rel="noopener">{{ project.title }}</a>{% else %}<span>{{ project.title }}</span>{% endif %}
-          {% if project.note %}<em class="sidebar-projects__note">({{ project.note }})</em>{% endif %}
+          <span class="sp-tag" style="background:{{ project.tag_color }};">{{ project.tag }}</span>
+          {% if project.url %}<a href="{{ project.url }}" target="_blank" rel="noopener">{{ project.title }}</a>{% else %}<span class="sp-name">{{ project.title }}</span>{% endif %}
+          {% if project.note %}<em class="sp-note">({{ project.note }})</em>{% endif %}
         </div>
         {% endfor %}
         </div>
@@ -122,18 +132,23 @@
     <style>
     .sidebar-projects {
       margin-top: 0.5rem;
-      text-align: center;
+      text-align: left;
     }
     .sidebar-projects__title {
-      font-size: 0.82rem;
-      color: #666;
-      margin-bottom: 0.6rem;
+      font-size: 0.72rem;
+      color: #888;
+      margin-bottom: 0.5rem;
       font-weight: 600;
-      letter-spacing: 0.02em;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
     }
     .sidebar-projects__item {
-      margin-bottom: 0.35rem;
-      font-size: 0.85rem;
+      margin-bottom: 0.4rem;
+      font-size: 0.82rem;
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      flex-wrap: wrap;
     }
     .sidebar-projects__item a {
       color: #0366d6;
@@ -143,13 +158,46 @@
     .sidebar-projects__item a:hover {
       text-decoration: underline;
     }
-    .sidebar-projects__item span {
+    .sp-stars {
+      font-size: 0.72rem;
+      color: #e3b341;
+      font-weight: 600;
+      min-width: 42px;
+    }
+    .sp-conf {
+      font-size: 0.58rem;
+      background: #0366d6;
+      color: #fff;
+      padding: 0 5px;
+      border-radius: 3px;
+      font-weight: 600;
+      vertical-align: middle;
+      text-decoration: none;
+      border: none;
+    }
+    .sp-tag {
+      font-size: 0.58rem;
+      color: #fff;
+      padding: 0 6px;
+      border-radius: 10px;
+      font-weight: 600;
+      white-space: nowrap;
+      line-height: 1.6;
+    }
+    .sp-name {
       color: #555;
       font-weight: 500;
     }
-    .sidebar-projects__note {
-      font-size: 0.72rem;
+    .sp-note {
+      font-size: 0.68rem;
       color: #999;
+      font-style: italic;
+    }
+    @media (prefers-color-scheme: dark) {
+      .sidebar-projects__title { color: #777; }
+      .sidebar-projects__item a { color: #58a6ff; }
+      .sp-name { color: #aaa; }
+      .sp-conf { background: #58a6ff; color: #000; }
     }
     @media (prefers-color-scheme: dark) {
       .sidebar-projects__title { color: #999; }
