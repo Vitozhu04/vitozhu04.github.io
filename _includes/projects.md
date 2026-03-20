@@ -1,124 +1,96 @@
 <h2 id="projects" style="margin: 2px 0px -15px;">Projects</h2>
 
-<h4 style="margin:10px 0 8px;">Research Code</h4>
-<div class="projects-grid">
+<h4 style="margin:10px 10px 5px;">Research Code</h4>
+<table class="projects-table">
 {% for project in site.data.projects.research %}
-<div class="project-card">
-  <div class="project-card__header">
-    <a href="{{ project.slug }}/" class="project-card__title">{{ project.title }}</a>
-    {% if project.conference %}<span class="project-card__badge">{{ project.conference }}</span>{% endif %}
-    {% if project.stars %}<span class="project-card__stars">&#9733; {{ project.stars }}</span>{% endif %}
-  </div>
-  <p class="project-card__desc">{{ project.description }}</p>
-  <div class="project-card__tech">
-    {% for t in project.tech %}<span class="project-card__tag">{{ t }}</span>{% endfor %}
-  </div>
-  <div class="project-card__links">
-    <a href="{{ project.github }}" target="_blank" rel="noopener" class="btn btn-sm z-depth-0" style="font-size:12px;">GitHub</a>
+<tr>
+  <td class="proj-name">
+    <a href="{{ project.slug }}/">{{ project.title }}</a>
+    {% if project.conference %}<abbr class="badge">{{ project.conference }}</abbr>{% endif %}
+  </td>
+  <td class="proj-desc">{{ project.description }}</td>
+  <td class="proj-links">
+    {% if project.stars %}<span class="proj-stars">&#9733; {{ project.stars }}</span>{% endif %}
+    <a href="{{ project.github }}" target="_blank" rel="noopener" class="btn btn-sm z-depth-0" style="font-size:12px;">Code</a>
     {% if project.demo %}<a href="{{ project.demo }}" target="_blank" rel="noopener" class="btn btn-sm z-depth-0" style="font-size:12px;">Demo</a>{% endif %}
-  </div>
-</div>
+  </td>
+</tr>
 {% endfor %}
-</div>
+</table>
 
-<h4 style="margin:10px 0 8px;">Personal / Side Projects</h4>
-<div class="projects-grid">
+<h4 style="margin:10px 10px 5px;">Side Projects</h4>
+<table class="projects-table">
 {% for project in site.data.projects.personal %}
-<div class="project-card">
-  <div class="project-card__header">
-    <a href="{{ project.slug }}/" class="project-card__title">{{ project.title }}</a>
-  </div>
-  <p class="project-card__desc">{{ project.description }}</p>
-  <div class="project-card__tech">
-    {% for t in project.tech %}<span class="project-card__tag">{{ t }}</span>{% endfor %}
-  </div>
-  <div class="project-card__links">
-    <a href="{{ project.github }}" target="_blank" rel="noopener" class="btn btn-sm z-depth-0" style="font-size:12px;">GitHub</a>
+<tr>
+  <td class="proj-name">
+    <a href="{{ project.slug }}/">{{ project.title }}</a>
+  </td>
+  <td class="proj-desc">{{ project.description }}</td>
+  <td class="proj-links">
+    <a href="{{ project.github }}" target="_blank" rel="noopener" class="btn btn-sm z-depth-0" style="font-size:12px;">Code</a>
     {% if project.demo %}<a href="{{ project.demo }}" target="_blank" rel="noopener" class="btn btn-sm z-depth-0" style="font-size:12px;">Demo</a>{% endif %}
-  </div>
-</div>
+  </td>
+</tr>
 {% endfor %}
-</div>
+</table>
 
 <style>
-.projects-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-  gap: 16px;
-  margin: 12px 0 20px;
+.projects-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 4px 0 16px;
 }
-.project-card {
-  border: 1px solid #e0e0e0;
-  border-radius: 8px;
-  padding: 16px;
-  transition: box-shadow 0.2s;
+.projects-table tr {
+  border-bottom: 1px solid #eee;
 }
-.project-card:hover {
-  box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+.projects-table tr:last-child {
+  border-bottom: none;
 }
-.project-card__header {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  flex-wrap: wrap;
-  margin-bottom: 8px;
+.projects-table td {
+  padding: 8px 6px;
+  vertical-align: top;
+  font-size: 0.88rem;
 }
-.project-card__title {
+.proj-name {
+  white-space: nowrap;
   font-weight: 600;
-  font-size: 1.05rem;
+  width: 1%;
+  padding-right: 10px !important;
+}
+.proj-name a {
   color: #0366d6;
   text-decoration: none;
 }
-.project-card__title:hover {
+.proj-name a:hover {
   text-decoration: underline;
 }
-.project-card__badge {
-  display: inline-block;
-  padding: 1px 8px;
-  background: #0366d6;
-  color: #fff;
-  border-radius: 4px;
-  font-size: 0.68rem;
-  font-weight: 600;
-  letter-spacing: 0.05em;
+.proj-name .badge {
+  font-size: 0.6rem;
+  vertical-align: middle;
+  margin-left: 4px;
 }
-.project-card__stars {
+.proj-desc {
+  color: #555;
+  line-height: 1.5;
+}
+.proj-links {
+  white-space: nowrap;
+  width: 1%;
+  text-align: right;
+}
+.proj-stars {
   font-size: 0.78rem;
   color: #e3b341;
   font-weight: 500;
-}
-.project-card__desc {
-  font-size: 0.88rem;
-  color: #555;
-  line-height: 1.55;
-  margin-bottom: 10px;
-}
-.project-card__tech {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 4px;
-  margin-bottom: 10px;
-}
-.project-card__tag {
-  display: inline-block;
-  padding: 1px 7px;
-  background: #f0f4f8;
-  color: #555;
-  border-radius: 4px;
-  font-size: 0.7rem;
-}
-.project-card__links {
-  display: flex;
-  gap: 6px;
+  margin-right: 4px;
 }
 
-/* Dark mode */
 @media (prefers-color-scheme: dark) {
-  .project-card { border-color: #333; }
-  .project-card:hover { box-shadow: 0 2px 12px rgba(255,255,255,0.05); }
-  .project-card__title { color: #58a6ff; }
-  .project-card__badge { background: #58a6ff; color: #000; }
-  .project-card__desc { color: #aaa; }
-  .project-card__tag { background: #1c2128; color: #8b949e; }
+  .projects-table tr { border-color: #333; }
+  .proj-name a { color: #58a6ff; }
+  .proj-desc { color: #aaa; }
+}
+@media (max-width: 768px) {
+  .proj-desc { display: none; }
 }
 </style>
