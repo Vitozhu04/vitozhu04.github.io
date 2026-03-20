@@ -31,6 +31,8 @@ Earlier, as a **Research Scientist at Cloudwalk Technology**, I developed a **bi
 - **Agentic Systems:** LLM-based planning, tool use, and evaluation frameworks  
 - **Generative Media:** automatic video repurposing and multimodal content creation  
 
+{% include_relative _includes/projects.md %}
+
 ## News
 
 - **[Feb. 2026]** 🎉 One paper is accepted by **CVPR 2026**.

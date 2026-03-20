@@ -313,6 +313,85 @@ main, #main, .wrapper {
 .research-tile strong { display: block; color: var(--text); font-size: 1.05rem; margin-bottom: 0.4rem; }
 .research-tile p { color: var(--text-dim); font-size: 0.88rem; margin: 0; line-height: 1.65; }
 
+/* ── Projects ── */
+.projects-section-label {
+  font-size: 0.72rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 1rem;
+  font-weight: 500;
+}
+.cine-projects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 1rem;
+  width: 100%;
+}
+.cine-project-card {
+  display: flex;
+  flex-direction: column;
+  background: rgba(255,255,255,0.03);
+  border: 1px solid var(--rule);
+  border-radius: 10px;
+  padding: 1.2rem 1.4rem;
+  text-decoration: none;
+  color: inherit;
+  transition: border-color 0.25s, transform 0.25s;
+}
+.cine-project-card:hover {
+  border-color: var(--accent);
+  transform: translateY(-3px);
+}
+.cine-project-card__top {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin-bottom: 0.6rem;
+}
+.cine-project-card__name {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--text);
+}
+.cine-project-card__conf {
+  display: inline-block;
+  padding: 1px 8px;
+  background: var(--accent);
+  color: #000;
+  border-radius: 4px;
+  font-size: 0.6rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+.cine-project-card__stars {
+  font-size: 0.75rem;
+  color: var(--accent-warm);
+  font-weight: 500;
+}
+.cine-project-card__desc {
+  font-size: 0.82rem;
+  color: var(--text-dim);
+  line-height: 1.55;
+  margin-bottom: 0.8rem;
+  flex: 1;
+}
+.cine-project-card__tech {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+}
+.cine-project-card__tag {
+  display: inline-block;
+  padding: 1px 7px;
+  background: rgba(255,255,255,0.06);
+  color: var(--text-dim);
+  border-radius: 4px;
+  font-size: 0.65rem;
+}
+
 /* ── News ── */
 .news-list { list-style: none; padding: 0; margin: 0; width: 100%; }
 .news-item {

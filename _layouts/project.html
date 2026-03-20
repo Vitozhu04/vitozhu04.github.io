@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>{{ page.project_title }} | {{ site.title }}</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="{{ page.project_description }}">
+  <link rel="icon" media="(prefers-color-scheme:dark)" href="{{ site.baseurl }}/assets/img/favicon-dark.png" type="image/png" />
+  <link rel="icon" media="(prefers-color-scheme:light)" href="{{ site.baseurl }}/assets/img/favicon.png" type="image/png" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <style>
+    :root {
+      --bg: #06060a;
+      --bg-2: #0d0e14;
+      --text: #f0f0f2;
+      --text-dim: rgba(240,240,242,0.55);
+      --text-mid: rgba(240,240,242,0.78);
+      --accent: #3eb7f0;
+      --accent-warm: #e8c67a;
+      --rule: rgba(255,255,255,0.08);
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: -apple-system, 'Inter', BlinkMacSystemFont, sans-serif;
+      -webkit-font-smoothing: antialiased;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+    .project-hero {
+      padding: 12vh 15vw 6vh;
+      border-bottom: 1px solid var(--rule);
+    }
+    .project-hero__back {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      padding: 0.4em 1em;
+      background: rgba(240,240,242,0.07);
+      color: var(--text-dim);
+      border: 1px solid var(--rule);
+      border-radius: 999px;
+      font-size: 0.78rem;
+      text-decoration: none;
+      margin-bottom: 3rem;
+      transition: background 0.2s, color 0.2s;
+    }
+    .project-hero__back:hover { background: rgba(240,240,242,0.12); color: var(--text); }
+    .project-hero__badges { display: flex; gap: 0.6rem; align-items: center; margin-bottom: 1.5rem; flex-wrap: wrap; }
+    .project-hero__conf {
+      display: inline-block;
+      padding: 0.28em 0.75em;
+      background: var(--accent);
+      color: #000;
+      border-radius: 4px;
+      font-size: 0.65rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+    .project-hero__stars {
+      font-size: 0.85rem;
+      color: var(--accent-warm);
+      font-weight: 500;
+    }
+    .project-hero h1 {
+      font-size: clamp(2.5rem, 6vw, 5rem);
+      font-weight: 700;
+      letter-spacing: -0.03em;
+      line-height: 1.05;
+      margin-bottom: 1.5rem;
+    }
+    .project-hero__desc {
+      font-size: clamp(0.95rem, 1.6vw, 1.1rem);
+      color: var(--text-dim);
+      max-width: 680px;
+      line-height: 1.75;
+      margin-bottom: 2rem;
+    }
+    .project-hero__tech { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 2rem; }
+    .project-hero__tag {
+      display: inline-block;
+      padding: 3px 10px;
+      background: rgba(255,255,255,0.06);
+      color: var(--text-dim);
+      border-radius: 5px;
+      font-size: 0.75rem;
+    }
+    .project-hero__links { display: flex; gap: 0.8rem; flex-wrap: wrap; }
+    .project-hero__btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      padding: 0.5em 1.4em;
+      border: 1px solid rgba(62,183,240,0.35);
+      color: var(--accent);
+      border-radius: 6px;
+      font-size: 0.82rem;
+      text-decoration: none;
+      transition: all 0.2s;
+    }
+    .project-hero__btn:hover { background: rgba(62,183,240,0.12); border-color: var(--accent); }
+    .project-hero__btn--primary {
+      background: var(--accent);
+      color: #000;
+      border-color: var(--accent);
+      font-weight: 600;
+    }
+    .project-hero__btn--primary:hover { background: #5cc5f5; }
+    .project-content {
+      flex: 1;
+      padding: 4vh 15vw 8vh;
+    }
+    .project-content p, .project-content li {
+      font-size: 0.95rem;
+      color: var(--text-dim);
+      line-height: 1.8;
+    }
+    .project-content a { color: var(--accent); text-decoration: none; }
+    .project-content a:hover { text-decoration: underline; }
+    .project-footer {
+      text-align: center;
+      padding: 2rem;
+      font-size: 0.7rem;
+      color: var(--text-dim);
+      border-top: 1px solid var(--rule);
+    }
+    .project-footer a { color: var(--text-dim); text-decoration: none; }
+    @media (max-width: 768px) {
+      .project-hero { padding: 8vh 6vw 4vh; }
+      .project-content { padding: 3vh 6vw 6vh; }
+    }
+  </style>
+</head>
+<body>
+  <div class="project-hero">
+    <a href="{{ site.baseurl }}/" class="project-hero__back">&larr; Back to Home</a>
+    <div class="project-hero__badges">
+      {% if page.project_conference %}<span class="project-hero__conf">{{ page.project_conference }}</span>{% endif %}
+      {% if page.project_stars %}<span class="project-hero__stars">&#9733; {{ page.project_stars }}</span>{% endif %}
+    </div>
+    <h1>{{ page.project_title }}</h1>
+    <p class="project-hero__desc">{{ page.project_description }}</p>
+    {% if page.project_tech %}
+    <div class="project-hero__tech">
+      {% for t in page.project_tech %}<span class="project-hero__tag">{{ t }}</span>{% endfor %}
+    </div>
+    {% endif %}
+    <div class="project-hero__links">
+      {% if page.project_github %}<a href="{{ page.project_github }}" class="project-hero__btn" target="_blank" rel="noopener"><i class="fab fa-github"></i> GitHub</a>{% endif %}
+      {% if page.project_demo %}<a href="{{ page.project_demo }}" class="project-hero__btn project-hero__btn--primary" target="_blank" rel="noopener">Live Demo</a>{% endif %}
+      {% if page.project_paper %}<a href="{{ page.project_paper }}" class="project-hero__btn" target="_blank" rel="noopener">Paper</a>{% endif %}
+    </div>
+  </div>
+  <div class="project-content">
+    {{ content }}
+  </div>
+  <footer class="project-footer">
+    <p><a href="{{ site.baseurl }}/">{{ site.title }}</a></p>
+  </footer>
+</body>
+</html>

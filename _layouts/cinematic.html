@@ -48,6 +48,7 @@
   <div class="sidebar-nav__item"><span class="sidebar-nav__dot"></span><span class="sidebar-nav__label">Background</span></div>
   <div class="sidebar-nav__item"><span class="sidebar-nav__dot"></span><span class="sidebar-nav__label">Career</span></div>
   <div class="sidebar-nav__item"><span class="sidebar-nav__dot"></span><span class="sidebar-nav__label">Research</span></div>
+  <div class="sidebar-nav__item"><span class="sidebar-nav__dot"></span><span class="sidebar-nav__label">Projects</span></div>
   <div class="sidebar-nav__item"><span class="sidebar-nav__dot"></span><span class="sidebar-nav__label">News</span></div>
   <div class="sidebar-nav__item"><span class="sidebar-nav__dot"></span><span class="sidebar-nav__label">Papers</span></div>
   <div class="sidebar-nav__item"><span class="sidebar-nav__dot"></span><span class="sidebar-nav__label">Awards</span></div>
@@ -84,7 +85,7 @@
 
   <!-- ══ 01 About ══ -->
   <section class="chapter" data-section="about" aria-label="About">
-    <span class="chapter__counter">01 / 07</span>
+    <span class="chapter__counter">01 / 08</span>
     <p class="chapter__label">About</p>
     <div class="chapter__headline-clip">
       <span class="chapter__headline">Wenbo<br>(Vito) Zhu</span>
@@ -105,7 +106,7 @@
 
   <!-- ══ 02 Background ══ -->
   <section class="chapter chapter--alt" data-section="background" aria-label="Background">
-    <span class="chapter__counter">02 / 07</span>
+    <span class="chapter__counter">02 / 08</span>
     <p class="chapter__label">Background</p>
     <div class="chapter__headline-clip">
       <span class="chapter__headline">Background</span>
@@ -124,7 +125,7 @@
 
   <!-- ══ 03 Career ══ -->
   <section class="chapter" data-section="career" aria-label="Career">
-    <span class="chapter__counter">03 / 07</span>
+    <span class="chapter__counter">03 / 08</span>
     <p class="chapter__label">Career</p>
     <div class="chapter__headline-clip">
       <span class="chapter__headline">Timeline</span>
@@ -150,7 +151,7 @@
 
   <!-- ══ 04 Research ══ -->
   <section class="chapter chapter--alt" data-section="research" aria-label="Research">
-    <span class="chapter__counter">04 / 07</span>
+    <span class="chapter__counter">04 / 08</span>
     <p class="chapter__label">Research</p>
     <div class="chapter__headline-clip">
       <span class="chapter__headline">Interests</span>
@@ -165,9 +166,51 @@
     </div>
   </section>
 
-  <!-- ══ 05 News ══ -->
+  <!-- ══ 05 Projects ══ -->
+  <section class="chapter" data-section="projects" aria-label="Projects">
+    <span class="chapter__counter">05 / 08</span>
+    <p class="chapter__label">Projects</p>
+    <div class="chapter__headline-clip">
+      <span class="chapter__headline">Projects</span>
+    </div>
+    <div class="chapter__divider"></div>
+    <div class="chapter__body">
+      <h4 class="projects-section-label">Research Code</h4>
+      <div class="cine-projects-grid">
+        {% for project in site.data.projects.research %}
+        <a href="{{ project.slug }}/" class="cine-project-card">
+          <div class="cine-project-card__top">
+            <span class="cine-project-card__name">{{ project.title }}</span>
+            {% if project.conference %}<span class="cine-project-card__conf">{{ project.conference }}</span>{% endif %}
+            {% if project.stars %}<span class="cine-project-card__stars">&#9733; {{ project.stars }}</span>{% endif %}
+          </div>
+          <p class="cine-project-card__desc">{{ project.description }}</p>
+          <div class="cine-project-card__tech">
+            {% for t in project.tech %}<span class="cine-project-card__tag">{{ t }}</span>{% endfor %}
+          </div>
+        </a>
+        {% endfor %}
+      </div>
+      <h4 class="projects-section-label" style="margin-top:2rem;">Side Projects</h4>
+      <div class="cine-projects-grid">
+        {% for project in site.data.projects.personal %}
+        <a href="{{ project.slug }}/" class="cine-project-card">
+          <div class="cine-project-card__top">
+            <span class="cine-project-card__name">{{ project.title }}</span>
+          </div>
+          <p class="cine-project-card__desc">{{ project.description }}</p>
+          <div class="cine-project-card__tech">
+            {% for t in project.tech %}<span class="cine-project-card__tag">{{ t }}</span>{% endfor %}
+          </div>
+        </a>
+        {% endfor %}
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ 06 News ══ -->
   <section class="chapter" data-section="news" aria-label="News">
-    <span class="chapter__counter">05 / 07</span>
+    <span class="chapter__counter">06 / 08</span>
     <p class="chapter__label">News</p>
     <div class="chapter__headline-clip">
       <span class="chapter__headline">Updates</span>
@@ -224,7 +267,7 @@
 
   <!-- ══ 06 Awards ══ -->
   <section class="chapter chapter--alt" data-section="awards" aria-label="Awards">
-    <span class="chapter__counter">06 / 07</span>
+    <span class="chapter__counter">07 / 08</span>
     <p class="chapter__label">Awards</p>
     <div class="chapter__headline-clip">
       <span class="chapter__headline">Recognition</span>
@@ -246,7 +289,7 @@
 
 <!-- ══ 07 Services + Contact ══ -->
 <section class="scene--services-footer" data-section="services" aria-label="Services and Contact">
-  <span class="chapter__counter" style="position:absolute;top:3rem;right:var(--gutter);">07 / 07</span>
+  <span class="chapter__counter" style="position:absolute;top:3rem;right:var(--gutter);">08 / 08</span>
   <h2>Services</h2>
   <h4>Conference Reviewers</h4>
   <ul>
