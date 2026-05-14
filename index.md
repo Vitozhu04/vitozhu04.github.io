@@ -4,7 +4,7 @@ layout: homepage
 
 ## About Me
 
-Hello! I'm **Wenbo (Vito) Zhu**, currently the **Founding AI Lead & Head of AI Research** at [OpusClip](https://www.opusclip.com).  
+Hello! I'm **Wenbo (Vito) Zhu**, with **4+ years** building AI systems at [OpusClip](https://www.opusclip.com) as the **Founding AI Lead & Head of AI Research**.
 I joined when the team had around 5 engineers, failed and pivoted, and now lead a **30+ cross-functional AI team** delivering next-generation multimodal and generative video products.  
 I initiated, led, and shipped several flagship systems, including:  
 - [OpusClip](https://www.opus.pro/) – No.1 AI Clipping Tool in the market
