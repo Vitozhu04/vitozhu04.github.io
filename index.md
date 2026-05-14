@@ -4,8 +4,8 @@ layout: homepage
 
 ## About Me
 
-Hello! I'm **Wenbo (Vito) Zhu**, with **4+ years** building AI systems at [OpusClip](https://www.opusclip.com) as the **Founding AI Lead & Head of AI Research**.
-I joined when the team had around 5 engineers, failed and pivoted, and now lead a **30+ cross-functional AI team** delivering next-generation multimodal and generative video products.  
+Hello! I'm **Wenbo (Vito) Zhu**. I worked as **Founding AI Lead & Head of AI Research** at [OpusClip](https://www.opusclip.com) for **4+ years**.
+I joined when the team had around 5 engineers, failed and pivoted, and led a **30+ cross-functional AI team** delivering next-generation multimodal and generative video products.  
 I initiated, led, and shipped several flagship systems, including:  
 - [OpusClip](https://www.opus.pro/) – No.1 AI Clipping Tool in the market
 - [ClipAnything](https://www.opus.pro/clipanything) – First multi-modal clipping tool with prompting capabilities
@@ -21,7 +21,7 @@ Earlier, as a **Research Scientist at Cloudwalk Technology**, I developed a **bi
 
 ## Career
 
-- **[2022–Present]** Serving as **Founding AI Lead & Head of AI Research** at **OpusClip**
+- **[2022–2026]** Served as **Founding AI Lead & Head of AI Research** at **OpusClip**
 - **[2020–2022]** Joined **ByteDance/TikTok** as a **Senior ML Engineer**
 - **[2019–2020]** Started as a **Research Scientist** at **Cloudwalk Technology**
 
