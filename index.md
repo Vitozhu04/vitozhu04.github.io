@@ -4,7 +4,11 @@ layout: homepage
 
 ## About Me
 
-Hello! I'm **Wenbo (Vito) Zhu**. I worked as **Founding AI Lead & Head of AI Research** at [OpusClip](https://www.opusclip.com) for **4+ years**.
+Hello! I'm **Wenbo (Vito) Zhu**. I'm the **Agent Research Lead** at [HeyGen](https://www.heygen.com) — a leading AI video platform that turns text, images, and audio into studio-quality videos with realistic AI avatars. I lead agent research across HeyGen's two agentic product lines:
+- [Video Agent](https://www.heygen.com/agent) – a creative engine that turns any idea into a ready-to-publish video, end to end
+- [HyperFrames](https://www.heygen.com/hyperframes) – an agent-native framework for creating and editing videos by vibe-coding
+
+Before HeyGen, I worked as **Founding AI Lead & Head of AI Research** at [OpusClip](https://www.opusclip.com) for **4+ years**.
 I joined when the team had around 5 engineers, failed and pivoted, and led a **30+ cross-functional AI team** delivering next-generation multimodal and generative video products.  
 I initiated, led, and shipped several flagship systems, including:  
 - [OpusClip](https://www.opus.pro/) – No.1 AI Clipping Tool in the market
@@ -21,6 +25,7 @@ Earlier, as a **Research Scientist at Cloudwalk Technology**, I developed a **bi
 
 ## Career
 
+- **[2026–Present]** **Agent Research Lead** at **HeyGen**, leading **Video Agent** & **HyperFrames**
 - **[2022–2026]** Served as **Founding AI Lead & Head of AI Research** at **OpusClip**
 - **[2020–2022]** Joined **ByteDance/TikTok** as a **Senior ML Engineer**
 - **[2019–2020]** Started as a **Research Scientist** at **Cloudwalk Technology**
@@ -33,6 +38,7 @@ Earlier, as a **Research Scientist at Cloudwalk Technology**, I developed a **bi
 
 ## News
 
+- **[May 2026]** 🚀 Joined **HeyGen** as **Agent Research Lead**, leading agent research for **Video Agent** and **HyperFrames**.
 - **[Feb. 2026]** 🎉 One paper is accepted by **CVPR 2026**.
 - **[Jan. 2026]** One paper is accepted by **ICLR 2026**.
 - **[Sept 2025]** Two papers accepted by **NeurIPS 2025**.

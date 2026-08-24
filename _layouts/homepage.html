@@ -102,14 +102,6 @@
         </div>
         {% endfor %}
 
-        <h4 class="sidebar-projects__title" style="margin-top:1rem;">Side Projects</h4>
-        {% for project in site.data.projects.personal %}
-        <div class="sidebar-projects__item">
-          <span class="sp-tag" style="background:{{ project.tag_color }};">{{ project.tag }}</span>
-          {% if project.url %}<a href="{{ project.url }}" target="_blank" rel="noopener">{{ project.title }}</a>{% else %}<span class="sp-name">{{ project.title }}</span>{% endif %}
-          {% if project.note %}<em class="sp-note">({{ project.note }})</em>{% endif %}
-        </div>
-        {% endfor %}
         </div>
 
       </header>
