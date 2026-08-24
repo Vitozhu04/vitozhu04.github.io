@@ -1,23 +1,30 @@
 research:
+  - title: HyperFrames
+    slug: hyperframes
+    description: "Write HTML. Render video. Built for agents."
+    github: https://github.com/heygen-com/hyperframes
+    conference: HeyGen
+    stars: 42.4k
+
   - title: DFT
     slug: dft
     description: "Generalization of SFT via Reward Rectification"
     github: https://github.com/yongliang-wu/DFT
     conference: ICLR 2026
-    stars: 546
+    stars: 1.1k
 
   - title: NumPro
     slug: numpro
     description: "Temporal Grounding Videos like Flipping Manga"
     github: https://github.com/yongliang-wu/NumPro
     conference: CVPR 2025
-    stars: 146
+    stars: 149
 
   - title: MM-VID
     slug: mm-vid
     description: "Video Understanding with GPT-4V(ision)"
     github: https://github.com/yongliang-wu/MM-VID
-    stars: 39
+    stars: 45
 
   - title: TrackGPT
     slug: trackgpt
@@ -30,7 +37,7 @@ research:
     description: "Video Repurposing from User Generated Content"
     github: https://github.com/yongliang-wu/Repurpose
     conference: AAAI 2025
-    stars: 27
+    stars: 31
 
 personal:
   - title: Fatery
