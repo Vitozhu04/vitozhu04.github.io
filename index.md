@@ -10,7 +10,7 @@ Before HeyGen, I spent **4+ years** at [OpusClip](https://www.opusclip.com) as *
 
 Earlier, I was a **Senior ML Engineer at ByteDance/TikTok** (founding engineer of [Gauthmath](https://www.gauthmath.com/), 100M+ downloads) and a **Research Scientist at Cloudwalk Technology**, where I built a **billion-scale face clustering engine** deployed across 10+ cities (patented).
 
-- **Recognition:** Both **OpusClip** and **Gauthmath** were recognized by *Andreessen Horowitz (a16z)* as **Top 50 GenAI Apps**.
+- **Recognition:** **HeyGen** was named to the [**Forbes AI 50 (2026)**](https://www.forbes.com/lists/ai50/) and [**Fast Company's Most Innovative Companies (2026)**](https://www.heygen.com/blog/heygen-fast-company-most-innovative-company-2026); both **OpusClip** and **Gauthmath** were recognized by *Andreessen Horowitz (a16z)* as **Top 50 GenAI Apps**.
 - **Leadership:** I founded the [Opus AI Research Team](https://opusair.github.io/), the research team at OpusClip.
 - **Collaboration:** I work with <a href="https://yxpalmweb.github.io/" target="_blank" rel="noopener" style="color: rgb(62, 183, 240);">Prof. Xu Yang</a> on multimodal video intelligence and robust vision-language alignment.
 - **Education:** I hold a **Master (OR)** from [UC Berkeley](https://engineering.berkeley.edu/) and an **Undergrad (IE & Math)** from [Beihang University](https://ev.buaa.edu.cn/).
