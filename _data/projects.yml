@@ -4,14 +4,14 @@ research:
     description: "Write HTML. Render video. Built for agents."
     github: https://github.com/heygen-com/hyperframes
     conference: HeyGen
-    stars: 42.4k
+    stars: 52.2k
 
   - title: DFT
     slug: dft
     description: "Generalization of SFT via Reward Rectification"
     github: https://github.com/yongliang-wu/DFT
     conference: ICLR 2026
-    stars: 1.1k
+    stars: 1.0k
 
   - title: NumPro
     slug: numpro
@@ -37,7 +37,7 @@ research:
     description: "Video Repurposing from User Generated Content"
     github: https://github.com/yongliang-wu/Repurpose
     conference: AAAI 2025
-    stars: 31
+    stars: 32
 
 personal:
   - title: Fatery
