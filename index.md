@@ -18,7 +18,7 @@ Earlier, I was a **Senior ML Engineer at ByteDance/TikTok** (founding engineer o
 ## Flagship Products & Features
 
 - **[HeyGen]** [Video Agent](https://www.heygen.com/agent) – a creative engine that turns any idea into a ready-to-publish video, end to end
-- **[HeyGen]** [HyperFrames](https://www.heygen.com/hyperframes) – an agent-native framework for creating and editing videos by vibe-coding
+- **[HeyGen]** [HyperFrames](https://www.heygen.com/hyperframes) – an agent-native framework for creating and editing videos by vibe-coding (**50K+** [GitHub stars](https://github.com/heygen-com/hyperframes))
 - **[OpusClip]** [OpusClip](https://www.opus.pro/) – No.1 AI clipping tool in the market
 - **[OpusClip]** [ClipAnything](https://www.opus.pro/clipanything) – the first multi-modal clipping tool with prompting capabilities
 - **[OpusClip]** [Agent Opus](https://www.opus.pro/agent) – the first video agent tailored for social media
@@ -39,6 +39,9 @@ Earlier, I was a **Senior ML Engineer at ByteDance/TikTok** (founding engineer o
 
 ## News
 
+- **[Sept 2026]** 🚀 Released **Code2Video Bench** with **Google DeepMind** and **Kaggle** — evaluating how well models turn creative briefs into motion graphics. [Leaderboard](https://www.kaggle.com/benchmarks/heygen/code2video) · [Technical report](https://www.heygen.com/research/introducing-code2video-benchmark)
+- **[Sept 2026]** ⭐ [HyperFrames](https://github.com/heygen-com/hyperframes) surpassed **50K GitHub stars**.
+- **[Jul. 2026]** 🎉 One paper is accepted by **CoLM 2026**.
 - **[May 2026]** 🚀 Joined **HeyGen** as **Agent Research Lead**, leading agent research for **Video Agent** and **HyperFrames**.
 - **[Feb. 2026]** 🎉 One paper is accepted by **CVPR 2026**.
 - **[Jan. 2026]** One paper is accepted by **ICLR 2026**.
@@ -55,6 +58,9 @@ Earlier, I was a **Senior ML Engineer at ByteDance/TikTok** (founding engineer o
 
 ## Competition & Awards
 
+- **[Jun. 2026]** 🥇 **1st Place** – **Visual Question Answering**, SoccerNet @ CVPR 2026
+- **[Jun. 2026]** 🥇 **1st Place** – **TimeLogic Challenge**, Vid-LLMs Workshop @ CVPR 2026
+- **[Jun. 2026]** 🥈 **2nd Place** – **VRR-QA Challenge**, Vid-LLMs Workshop @ CVPR 2026
 - **[Oct 2025]** 🥈 **2nd Place** – **Perception Test Challenge 2025** (Task 5: Hour-Long Video QA)
 - **[Aug 2025]** 🥉 **3rd Place** – **CVPR 2025 SoccerNet Challenge** (Multi-View Foul Recognition)
 - **[Jun 2025]** 🥇 **1st Place** – **CVPR 2025 VidLLMs Challenge** (Multilingual Video Reasoning)
