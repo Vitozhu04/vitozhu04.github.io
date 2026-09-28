@@ -13,7 +13,7 @@ main:
     pdf: https://arxiv.org/abs/2508.05629
     image: ./assets/img/dft.png
     code: https://github.com/yongliang-wu/DFT
-    others: <strong><i style="color:#e74d3c">Integrated by ms-swift, trl, llama-factory.</i></strong>
+    notes: "Integrated by ms-swift, trl, and LLaMA-Factory."
 
   - title: "Adapting Point Cloud Analysis via Multimodal Bayesian Distribution Learning"
     authors: "Xingyu Zhu, Liang Yi, Shuo Wang, <strong>Wenbo Zhu</strong>, Yongliang Wu, Beier Zhu, Hanwang Zhang"
@@ -28,6 +28,7 @@ main:
     pdf: https://arxiv.org/abs/2505.16707
     image: ./assets/img/kris-bench.png
     code: https://yongliang-wu.github.io/kris_bench_project_page/
+    notes: "Widely used as a benchmark for image editing."
 
   - title: "DuSA: Fast and Accurate Dual-Stage Sparse Attention Mechanism Accelerating Both Training and Inference"
     authors: "Chong Wu, Jiawang Cao, Renjie Xu, Zhuoheng Ran, Maolin Che, <strong>Wenbo Zhu</strong>, Hong Yan"
@@ -43,7 +44,7 @@ main:
     pdf: https://arxiv.org/abs/2411.10332
     code: https://github.com/yongliang-wu/NumPro
     image: ./assets/img/numpro.png
-    others: <strong><i style="color:#e74d3c">Adopted by Andrew Zisserman's work.</i></strong>
+    notes: "Adopted by Andrew Zisserman's work."
 
   - title: "Unlearning Concepts in Diffusion Model via Concept Domain Correction and Concept Preserving Gradient"
     authors: "Yongliang Wu*, Shiji Zhou*, Mingzhuo Yang, Lianzhe Wang, <strong>Wenbo Zhu</strong>, Heng Chang, Xinting Hu, Xiao Zhou, Xu Yang"
@@ -76,4 +77,4 @@ main:
     conference: "Annual Meeting of the Association for Computational Linguistics (ACL), 2025."
     pdf: https://arxiv.org/abs/2506.04277
     image: ./assets/img/rsvp.png
-    others: <strong><i style="color:#e74d3c">Compared and cited by SAM 3.</i></strong>
+    notes: "Compared and cited by SAM 3."

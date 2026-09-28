@@ -62,9 +62,9 @@ Earlier, I was a **Senior ML Engineer at ByteDance/TikTok** (founding engineer o
 - **[Jun. 2026]** 🥇 **1st Place** – **TimeLogic Challenge**, Vid-LLMs Workshop @ CVPR 2026
 - **[Jun. 2026]** 🥈 **2nd Place** – **VRR-QA Challenge**, Vid-LLMs Workshop @ CVPR 2026
 - **[Oct 2025]** 🥈 **2nd Place** – **Perception Test Challenge 2025** (Task 5: Hour-Long Video QA)
-- **[Aug 2025]** 🥉 **3rd Place** – **CVPR 2025 SoccerNet Challenge** (Multi-View Foul Recognition)
 - **[Jun 2025]** 🥇 **1st Place** – **CVPR 2025 VidLLMs Challenge** (Multilingual Video Reasoning)
 - **[Jun 2025]** 🥈 **2nd Place** – **CVPR 2025 VidLLMs Challenge** (Complex Video Reasoning & Robustness)
+- **[Jun 2025]** 🥉 **3rd Place** – **CVPR 2025 SoccerNet Challenge** (Multi-View Foul Recognition)
 - **[Oct 2024]** 🏆 **Winner** – **ECCV 2024 Perception Challenge** (Hour-Long Video QA Track)
 - **[Jun 2024]** 🏆 **Winner** – **CVPR 2024 LOVEU Workshop** (Long-Term Video QA Track)
 - **[2020]** 🥈 **Kaggle ASHRAE Great Energy Predictor III** – Silver Medal (Top 2%)
