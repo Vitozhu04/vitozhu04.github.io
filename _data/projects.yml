@@ -4,14 +4,14 @@ research:
     description: "Write HTML. Render video. Built for agents."
     github: https://github.com/heygen-com/hyperframes
     conference: HeyGen
-    stars: 52.2k
+    stars: 89.7k
 
   - title: DFT
     slug: dft
     description: "Generalization of SFT via Reward Rectification"
     github: https://github.com/yongliang-wu/DFT
     conference: ICLR 2026
-    stars: 1.0k
+    stars: 931
 
   - title: NumPro
     slug: numpro
